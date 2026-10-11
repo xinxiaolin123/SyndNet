@@ -1,0 +1,539 @@
+{
+  "source_archive_sha256": "da559b37913fd0ce829557d4e5fac9abfe218405f89748de7b665f6a8edc9eb7",
+  "files": [
+    {
+      "path": "code/bootstrap/bootstrap_core.py",
+      "SHA256": "70fb9027f76093a47212c5089f3c528f5f436780bb510703fb0615c8c9942247",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/evaluation/finalize_scale.py",
+      "SHA256": "db0c156171402c7a697c3552e35181f6c6e2904ba1a67bea1770530d79488ad7",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/anatomy_model.py",
+      "SHA256": "b97ae0689e0149b18efb41608eaccb966e8fab95623c0211e2c9a807519f34db",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/diagnostic_model.py",
+      "SHA256": "36a00e0c8f93402f3ed07d346198bd1dc8cdeada1ef2152b75fd7802fb810a16",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/final_syndnet.py",
+      "SHA256": "89696662f00126f631fe04f61be87ec751da8a1d9d32eb58b5280d06a93b4222",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/image_only_model.py",
+      "SHA256": "b0a825947a17334642269318cf68183f01907a2f479628331d9ec3e36fea0fe3",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/matched_residual_model.py",
+      "SHA256": "e895038bee7f3003c4c0aa15c48ab715be8772ecdc1edff69d0c95a61a8205db",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/phenotype_common.py",
+      "SHA256": "6fdb136f4f987ea5f30ad3be5940898a5247c1e44df21281f4d4450c93612b36",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/reliability_model.py",
+      "SHA256": "12e3f493b06ae0faefe16b14e13fcfe8d73f55226151e028dd14ef71b15f0347",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/models/shuffled_support_control.py",
+      "SHA256": "43728f91588b5931befd5579c77004144d070b8e35d46bb5e6b9e58074e4752f",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/training/phenotype_train.py",
+      "SHA256": "e6b79d83d0d70307666533932973234190c7337c65c9691139a6942e5d5b54d1",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/training/train_image_and_support_control.py",
+      "SHA256": "1eef45706bdddad3c6b2e951b76a21ab7041e0ec132d6d998a26407c5fd1b26e",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/utils/diagnostic_runtime.py",
+      "SHA256": "900bdce3f86a95c5794008add70351d0a1beb18a809ac4756a474765e53ee06e",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "code/utils/final_scale_common.py",
+      "SHA256": "617c472dd76827b5bc10ed82631958e377e430cdfaf49afe51b18296f7535522",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "configs/expected_points.json",
+      "SHA256": "ea93d10f39cea9697d0e52656ec01256d3cdeb9dc9b44c39625035bcbb431c73",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "configs/final_scale_config.json",
+      "SHA256": "088d227385e7f5688273e95c734a56304b0c4227503d8a9f34fbc11134697918",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "configs/residual_scales.csv",
+      "SHA256": "8a011d9724af9df3237e33d98607cc207ec49aeb1ed3c7c038e240634f7afcc3",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "configs/seed_fold_manifest.csv",
+      "SHA256": "c29099fd12b7dc92ccd3961cdeb644530f98af9c5b763618627d417098b4c88f",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "configs/statistical_config.json",
+      "SHA256": "cf512b80a6cbc0efde70a35c012a8a9f918577616c68bc7e87a5b997a21c387a",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "configs/threshold_policy.json",
+      "SHA256": "be54eabd7f42a08345708e83d461f7f1f06ad9f7e7d89d567218a47b53d5cba6",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "data/ablation_patient_predictions.csv",
+      "SHA256": "4d9cb61aa82ca87a14f775a36b461f0db89fdc093e68d2e4d9cd45421c24fe18",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "data/final_model_predictions.csv",
+      "SHA256": "bd17f0a63555dd74677e7236fcc2c950d89b7eb2aa39cfd151b26742078c8d79",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "data/individual_reader_scores.csv",
+      "SHA256": "58ef91ce44506e5f4889b4fe26d42707c776bfda517024562d6315b92c60e067",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "data/reader_study_model_predictions.csv",
+      "SHA256": "14188849103cc9768b765e59566bc7a9830dc7da254e2c08637aa161d5eb0a00",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "data/supplementary_discrimination_predictions.csv",
+      "SHA256": "946513b9c2d9189dc81fb032bca8419c54d069b741a538b49efd254388a518c7",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "environment.yml",
+      "SHA256": "6add3692946d0290f2f8b8c6353808f315a417af0ae01194dba965ba700706ea",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/01_input/MRMC_LOCKED_CASE_PREDICTIONS.csv",
+      "SHA256": "b18e003301346ee87c5e76aa6f21014996ec6b220d470ee6229a76b48d8e6038",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/01_input/MRMC_REAL_LONG_FINAL.csv",
+      "SHA256": "938abad0e8ab62cee2d11ae047fe8ae12993d408c1d33b13c4627b173ce9239f",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/01_input/MRMC_REAL_READER_CASE_FINAL.csv",
+      "SHA256": "d04703d265b5da47951dd812015f238075124cef6996226194db088b37bdfc2a",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/00_input_qc.R",
+      "SHA256": "bb479636434d197b12cb16acf2c37d508c505156287eb6f97b6f9eed8e8a6c78",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/01_primary_imrmc.R",
+      "SHA256": "380654f3018ce3184542752ba57062fffaed0cf7f222eb9b70f095ebedd59be6",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/02_operating_glmm.R",
+      "SHA256": "54d0b94007740002631d5e6960e851cdad8eb0bcbcd0eaba99d8224dac4e69f4",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/03_secondary_glmm.R",
+      "SHA256": "ce443f81e75d63aaab6b719bb2046a273d2369d3e3bf780619da26f1efa05f94",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/04_safety_glmm.R",
+      "SHA256": "79464f174eb4aa3c14157542fe78be7a2dbcbf2230427fc7407ac345bca66dcf",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/05_publication_outputs.R",
+      "SHA256": "8fc150984abc3e61053fd255cf93b62f6ead4423bf13e1c34566baae674fd954",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/06_reproducibility_checks.R",
+      "SHA256": "695f3808b413f10299936ed786db4e8c818b0994c5c48e3470e1337998ad2dcc",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/glmm_helpers.R",
+      "SHA256": "f22150cca5c525e17a67bf64420100e39946b9d84e296bfcd90d33ac5b34f7ed",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/reader_intervals.R",
+      "SHA256": "56192f7b60363a7389e063b091abeb5c202e513c1503d63a94d9b57896009737",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/02_R/run_all.R",
+      "SHA256": "93b2b9a7f53806cd35a964727482fc88dadd07c60d585d5a72800dd3b42e0b03",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/experience_scaling.csv",
+      "SHA256": "96278bdba52f6ae3c680344be835858a439d387d06abb4e4de3a86533b57890c",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/figure_confusion_percentages.csv",
+      "SHA256": "1092b4da411ea9a3781149af6e1c3ea4506199a59cd3c64b77e5435ec69859fe",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/figure_operating_points.csv",
+      "SHA256": "6e735500c9283cbf927f75d09f69f5ff9d01b27a2c723650385ad72df601bfa7",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/locked_model_benchmark.csv",
+      "SHA256": "4be4e7604cf965766415080df66406cac6c6018d545cea80c044ed341f86846f",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/locked_model_descriptive.csv",
+      "SHA256": "287493314db3100cd2c15bfd708db5b8bf5e773f8269a787cceb3922ad292431",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/locked_model_roc.csv",
+      "SHA256": "44ba55b61a7aa61f1ac96ba9b9eee90f222dfe77934fb7664e1ac35aee84fbb2",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/marginal_estimation_method.txt",
+      "SHA256": "7ffeb9db3c94915fae2af91675915bcab6bfe6126d33531610f51c8bee91f9ed",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/operating_accuracy_summary.txt",
+      "SHA256": "cd4d44f62fb5ccdf449c42bcd7f0ffc5a755b7cd8cf421f044bbb3bf8c89ff73",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/operating_glmm.csv",
+      "SHA256": "8dd848328be85771904990b44717640e6a81acd55394cdf2fc2586dbbf6f6910",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/operating_sensitivity_summary.txt",
+      "SHA256": "7503be4767dfbe91f1d9cdeb3797a21ebc91113061b28b4ee21185b76d6a171b",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/operating_specificity_summary.txt",
+      "SHA256": "eee66025c378eaee2b01db8d6d23eccc0e35f7d2a8af934bf45f26ef9a209b4b",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/primary_imrmc_MLEstat.csv",
+      "SHA256": "2ccbc22702cf8c71ae68701adc77b73cae5243647dd976e5b4be6da433673d6d",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/primary_imrmc_perReader.csv",
+      "SHA256": "c7b95c3e2cdbf5cbf14d3a39a141a7a863aedadebab274b5bfc0d0e2688729e4",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/primary_imrmc_Ustat.csv",
+      "SHA256": "7f83a8c5fad08934f43b6f5fc910ed2ea5b9258254637d9b04739d6d88d93a3b",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/publication_table4.csv",
+      "SHA256": "285b719dd2fb4e770412644ce0535f7d5f13d8feb9a79d60b34f3a3f9e5e3360",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/publication_tableS6.csv",
+      "SHA256": "de086c79cf3f2e47529864e714bf5ef58f59c32ffee84e554e6a2f9a513a49d1",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/publication_tableS7_coefficients.csv",
+      "SHA256": "6f4cedb513dbdc7fd10fb9109d7ec140f7080d990e53cc5b0f90ccbd8eea4df5",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/publication_tableS7_interaction.csv",
+      "SHA256": "09543f13f22ac575316fe103391c9c669a18c3eadfeeb2f79d7bf7286189385c",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/publication_tableS7_specialties.csv",
+      "SHA256": "115d14d6ee894e57cd0aa085d20537d825426a2c4edd6be130aa802dfca57ec4",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/publication_tableS9.csv",
+      "SHA256": "0fc641554504329f8f837b41b7ee034f3f00260da5bba56fb993f2279f2aabec",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/reader_descriptive_auc.csv",
+      "SHA256": "a9308140eaacd2804f5d40a0253eda4872878d42bc696d290955726687e32e1d",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/reader_interval_method.txt",
+      "SHA256": "0879a5e7012d8bebd3a443fb64bf3c550317c491b6a8fa606c02cc09b5dd571f",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/reader_metadata.csv",
+      "SHA256": "86b0e360c49698b8df80a168aec3265a6159bdd41dccab4c5c0fc043b2e032fc",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/reader_observed_effects.csv",
+      "SHA256": "da8ab4f2a6d3c531c58d9ec6b960af066a2d905db5bf851f059426c930122dfd",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/reader_observed_metrics.csv",
+      "SHA256": "f84a60dac5a771c33bc0d6cc57abc995709ffd0ac6048a3aa89ef3db1976b3ba",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/reader_paired_bootstrap.csv",
+      "SHA256": "a90bec69b8039c9d814d81b5690246e8f1a081968a7c3fe042b2536e5a6ddf4e",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/reader_score_roc.csv",
+      "SHA256": "a1d87004f48a2cf32acf567f4d744be68e8fafdb47cf13f22a7e03002c425b4d",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/safety_coefficients.csv",
+      "SHA256": "99231eab567ba129209dd61f90ed68bd3482a303e7b034e49462799f08305781",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/safety_glmm.csv",
+      "SHA256": "de086c79cf3f2e47529864e714bf5ef58f59c32ffee84e554e6a2f9a513a49d1",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/safety_glmm_summary.txt",
+      "SHA256": "82699526ae3e5c9028a80ff49cf63bf2ee9c3c9456c960e88f25c02ddb7e9f7a",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/secondary_coefficients.csv",
+      "SHA256": "1a8e15bb2cbf94eb747f39a633e234f9b9ea0c4d4e2dc19cef60f1bdea5e21cb",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/secondary_glmm_summary.txt",
+      "SHA256": "20818ae91d6e7a4d0bf13837e3a3b821140836229150af93f78c8f5a469535e7",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/secondary_specialty_interaction.csv",
+      "SHA256": "09543f13f22ac575316fe103391c9c669a18c3eadfeeb2f79d7bf7286189385c",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/03_results/secondary_specialty_margins.csv",
+      "SHA256": "115d14d6ee894e57cd0aa085d20537d825426a2c4edd6be130aa802dfca57ec4",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/04_QC/expected_auc_fingerprint.csv",
+      "SHA256": "5e95233fba5cc2e632dc36170aaad3ee276177f5b2d7f60137c24bcb5c264f8c",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/04_QC/MRMC_AUROC_FINGERPRINT_QC.csv",
+      "SHA256": "f5fcfbead5cb9dfd982c4ee1c575b5777d4c999e623fa1983f14e6108727c079",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/04_QC/MRMC_INPUT_QC.csv",
+      "SHA256": "0ad2ba2e50c0240b3a78330a26aa5abe3dc40c340491a2622ab4e73b7c73c74c",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/04_QC/MRMC_POST_ANALYSIS_CHECKS.csv",
+      "SHA256": "ec55b5c40ba501e339c939984647613a5440b57c5ca41392bb56bc8f89474bab",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/05_environment/package_versions.csv",
+      "SHA256": "753af6516f6c3344cb23e8e03516ae3d68fc7c81aa0c722c1f4c222b445745e1",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/05_environment/renv.lock",
+      "SHA256": "96088df69b599d43f6c50d6e7bbee7c4455347382871a4bef602456c1ec48ed2",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/05_environment/sessionInfo.txt",
+      "SHA256": "f86bd69e1e6a1ee4273ea062a7deac43e80119d53de36fbb6f5423cd8c92bbf8",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/MRMC_METHODS_FINAL_FACTS.md",
+      "SHA256": "58975493db45ae42f2a85a0f6d8ef2c33ea8384fd4f393f133a37513d343da53",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/MRMC_RESULTS_FINAL_FACTS.md",
+      "SHA256": "64d1a9340fffdbb338db6ee363ef0d6190d24a35f648c389191c7b1ac34612f7",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "MRMC/README.md",
+      "SHA256": "68ca0d730b0765f47f4e73ae5a915f9e3f4c74b138a40668cb18ef5322751278",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "README.md",
+      "SHA256": "316f2fd3c0614ec5ec4632c655a95ee0be381b8ccf9f34baefbf6937065f5c62",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "requirements.txt",
+      "SHA256": "00a1ab09208a9fb768ceac91de7ea0f9e88c9d7ae417b6bb624eb65ff40fa785",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/ablation_ci.csv",
+      "SHA256": "db87fcd1d79158d98dcae3776a6adcbe0eaaf0a357beaf0ed632c5ce382f2a59",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/ablation_summary.csv",
+      "SHA256": "7a65e42e82f6d907d152da60d1b72ba1f4a30c3ddc11caf15f7be708e1c77f3d",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/experiment_manifest.csv",
+      "SHA256": "8a4d27567628d110da19a6855cbb8e2274135b5cdaf8f9fb9092bb68be26779b",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/fold_metrics.csv",
+      "SHA256": "b4673064517e63e2db32ff76541467bd4a96d37436776a0d16ee8d8750cab169",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/paired_effects.csv",
+      "SHA256": "d71c3a1ba160d1dcef8030e56b492bfa6958dcb323c10627e67df7eeab26af93",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/performance_ci.csv",
+      "SHA256": "bd6d5413c4c9cf8069198d64ed99b7d34ace756531182266dfd4495f1ce6f35e",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/reproduced_bootstrap_ci.csv",
+      "SHA256": "6622b24cdfea123e5870d2e6799095b9aad38d16e0c7e9d088c58e73f06db896",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/reproduced_supplementary_ci.csv",
+      "SHA256": "a7baf11e100647dc62458f65fa54db88b44e7f55a668f50d84059a986ab503a3",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/reproduced_table2.csv",
+      "SHA256": "fb568a283fc1048d0e0c4aaf9f54a219d006cedc59148390f5cb3ebe0a6f84d3",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/reproduced_table3.csv",
+      "SHA256": "6177645446f24813ca52f28bf82aab9e83ef0903fb4f93652992c3410b3b3142",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/reproduced_table4.csv",
+      "SHA256": "364d2ff75e9da15b9110d549f068c0a2b428965678ba46ba4e2040f9d2293798",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/seed_metrics.csv",
+      "SHA256": "5e3c4b17c7f0deb732892ed9373e955ef89b4366c5f7592d5ac74e24199f8f82",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/supplementary_ci.csv",
+      "SHA256": "c469c937bd34335008933062c0526a8ec4ceb41fd5a618c51c78e2fd300c2b6a",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "results/training_history.csv",
+      "SHA256": "898b6c1cde922823818e888824e0b35295a0e0250aafd6e34474ad9901e383b0",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "scripts/reproduce.py",
+      "SHA256": "7d16688cb883fcf11427ea6aa977555a7debbdc7c6c563ab2fd2df38aa1568a6",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "scripts/reproduce_bootstrap_ci.py",
+      "SHA256": "a513d55201b83be9b526a5e02a907ed91c25f1e8473bb6cb097dd055a126c77c",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "scripts/reproduce_supplementary_ci.py",
+      "SHA256": "5d1997e0865cc856ae32394cf524c2d34e3d8b8c9c69eba938d42936a15ec036",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "scripts/reproduce_table2.py",
+      "SHA256": "adfb9eb2e12d139a1f20694438a5c0ecaf8bc4bd6090b6bd7c4955d514cfbb28",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "scripts/reproduce_table3.py",
+      "SHA256": "519ab4a867c0fdc814af6001b5795157bd496245c4eafad54d5630fd4d75cd81",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "scripts/reproduce_table4_model_benchmark.py",
+      "SHA256": "ef54d7dc8c4436677a104804c1289b43f11f4ca7d547629adfad237cb0a4ed34",
+      "role": "original frozen submission payload"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "SHA256": "f7a5fa95ee875467f5dbf86863f22a3e756af3a4ae2b7ad0f3bcd7a03e7203bd",
+      "role": "original frozen submission payload"
+    }
+  ],
+  "relocations": {
+    "README.md": "docs/FROZEN_PACKAGE_README.md",
+    "SHA256SUMS.txt": "FROZEN_PACKAGE_SHA256SUMS.txt"
+  }
+}

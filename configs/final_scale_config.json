@@ -1,0 +1,34 @@
+{
+  "protocol": "FINAL-PERFORMANCE-1.0",
+  "phenotype_root": "inputs/phenotype",
+  "manifest": "inputs/internal_manifest.csv",
+  "prior_authority": "inputs/prior_authority.csv",
+  "master_metadata": "",
+  "expected_patients": 1461,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "image_size": 384,
+  "batch_size": 12,
+  "workers": 4,
+  "target_sensitivity": 0.95,
+  "bootstrap_iterations": 10000,
+  "external_locked": true,
+  "lambda_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "scale_penalty": 0.01
+}

@@ -1,0 +1,12 @@
+if(.Platform$OS.type=="windows") invisible(Sys.setlocale("LC_CTYPE","English_United States.utf8"))
+root <- normalizePath(Sys.getenv("SYNDNET_MRMC_ROOT", "."), mustWork=TRUE)
+w <- read.csv(file.path(root,"01_input","MRMC_REAL_READER_CASE_FINAL.csv"), stringsAsFactors=FALSE)
+t <- unique(w[c("case_id","truth")]); stopifnot(nrow(t)==2050)
+d <- rbind(data.frame(readerID="truth",caseID=t$case_id,modalityID="truth",score=t$truth),data.frame(readerID=w$reader_id,caseID=w$case_id,modalityID="unaided",score=w$reader_score_unaided),data.frame(readerID=w$reader_id,caseID=w$case_id,modalityID="AI-assisted",score=w$reader_score_assisted))
+fit <- iMRMC::doIMRMC(d)
+saveRDS(fit,file.path(root,"03_results","primary_imrmc_complete.rds"))
+write.csv(fit$Ustat,file.path(root,"03_results","primary_imrmc_Ustat.csv"),row.names=FALSE)
+write.csv(fit$MLEstat,file.path(root,"03_results","primary_imrmc_MLEstat.csv"),row.names=FALSE)
+write.csv(fit$perReader,file.path(root,"03_results","primary_imrmc_perReader.csv"),row.names=FALSE)
+print(fit$Ustat)
+

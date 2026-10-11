@@ -1,0 +1,6 @@
+* -text
+# Preserve frozen scientific payload bytes on every platform.
+*.py diff=python
+*.md diff
+*.R diff
+*.cff diff

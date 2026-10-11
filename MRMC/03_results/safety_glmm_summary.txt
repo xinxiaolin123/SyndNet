@@ -1,0 +1,56 @@
+correct ~ condition * model_correct + period + sequence + specialty +      experience_sd + (1 | reader_id) + (1 | case_id)
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: correct ~ condition * model_correct + period + sequence + specialty +  
+    experience_sd + (1 | reader_id) + (1 | case_id)
+   Data: data
+Control: control
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  27493.8   27593.1  -13735.9   27471.8     61489 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-13.0636   0.0365   0.0783   0.1966   8.6222 
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ case_id   (Intercept) 9.752446 3.1229  
+ reader_id (Intercept) 0.009664 0.0983  
+Number of obs: 61500, groups:  case_id, 2050; reader_id, 15
+
+Fixed effects:
+                                                  Estimate Std. Error z value
+(Intercept)                                        3.39725    0.28242  12.029
+conditionAI-assisted                              -1.45414    0.11222 -12.958
+model_correctSyndNet correct                      -0.05697    0.28939  -0.197
+period2                                           -0.01402    0.03529  -0.397
+sequenceBA                                         0.11521    0.06455   1.785
+specialtyFoot and ankle surgery                    0.52658    0.07487   7.033
+specialtyMusculoskeletal radiology                 0.62059    0.07497   8.278
+experience_sd                                      0.25048    0.03281   7.635
+conditionAI-assisted:model_correctSyndNet correct  3.16977    0.11892  26.656
+                                                  Pr(>|z|)    
+(Intercept)                                        < 2e-16 ***
+conditionAI-assisted                               < 2e-16 ***
+model_correctSyndNet correct                        0.8439    
+period2                                             0.6911    
+sequenceBA                                          0.0743 .  
+specialtyFoot and ankle surgery                   2.02e-12 ***
+specialtyMusculoskeletal radiology                 < 2e-16 ***
+experience_sd                                     2.26e-14 ***
+conditionAI-assisted:model_correctSyndNet correct  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) cndAI- md_SNc perid2 sqncBA spFaas spclMr exprn_
+cndtnAI-sss -0.282                                                 
+mdl_crrcSNc -0.938  0.279                                          
+period2     -0.039 -0.063  0.000                                   
+sequenceBA  -0.079  0.006 -0.001 -0.124                            
+spcltyFtaas -0.122 -0.008 -0.003  0.001 -0.029                     
+spcltyMsclr -0.122 -0.009 -0.004 -0.001 -0.019  0.492              
+experinc_sd  0.004 -0.009 -0.003  0.003  0.231 -0.107 -0.090       
+cndAI-:_SNc  0.267 -0.941 -0.275 -0.001  0.004  0.017  0.020  0.018

@@ -1,0 +1,5 @@
+example_id,reference_label,predicted_probability,fixed_prediction
+DEMO01,0,0.10,0
+DEMO02,0,0.40,0
+DEMO03,1,0.60,1
+DEMO04,1,0.90,1

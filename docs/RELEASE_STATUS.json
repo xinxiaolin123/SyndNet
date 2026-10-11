@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "repository": "https://github.com/xinxiaolin123/SyndNet",
+  "local_validation": "PASS",
+  "tag": "v1.0.0",
+  "github_release_url": "https://github.com/xinxiaolin123/SyndNet/releases/tag/v1.0.0",
+  "publication_state": "Consult the live GitHub release page; remote publication state is external to this immutable checkout.",
+  "zenodo_archive": "not created",
+  "doi": "DOI_PENDING"
+}

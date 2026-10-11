@@ -1,0 +1,4 @@
+"metric","observed","expected","pass"
+"unaided",0.787176574391152,0.7871765744,TRUE
+"assisted",0.970142577642979,0.9701425776,TRUE
+"difference",0.182966003251827,0.1829660033,TRUE

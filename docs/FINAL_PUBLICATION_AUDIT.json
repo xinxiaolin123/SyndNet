@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "files_inspected": 208,
+  "scope": "All Git publication candidates: file types, private paths, credentials, DICOM UIDs and sensitive assignments; original source audit additionally covers clinical identifiers and CSV schemas.",
+  "findings": [],
+  "legal_attribution": "Public names and addresses in upstream license texts are retained legal attribution.",
+  "limitations": "Pattern screening cannot prove institutional permission or absence of all re-identification risk. Frozen case/reader codes are derived publication inputs."
+}

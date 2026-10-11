@@ -1,0 +1,5 @@
+"check","pass"
+"primary_reader_mean_unaided",TRUE
+"primary_reader_mean_assisted",TRUE
+"primary_difference",TRUE
+"condition_records",TRUE

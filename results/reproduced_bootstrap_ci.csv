@@ -1,0 +1,60 @@
+table,cohort,model,metric,ci_low,ci_high
+Table3,Internal OOF,Image-only baseline,AUROC,0.95512611492230726,0.97579665443264296
+Table3,Internal OOF,Image-only baseline,AP,0.93040333812879239,0.9579108876129534
+Table3,Internal OOF,Image-only baseline,Specificity,0.78523895946763467,0.81851179673321239
+Table3,Internal OOF,Image-only baseline,FP,200,236.66666666666666
+Table3,Internal OOF,Matched residual,AUROC,0.9770999423686485,0.98957757230459675
+Table3,Internal OOF,Matched residual,AP,0.93920610662839887,0.97531435164884905
+Table3,Internal OOF,Matched residual,Specificity,0.90078644888082271,0.93194192377495455
+Table3,Internal OOF,Matched residual,FP,75,109.33333333333333
+Table3,Internal OOF,Without residual,AUROC,0.96350370390966378,0.98436875976320592
+Table3,Internal OOF,Without residual,AP,0.92905937329985233,0.96702004652182028
+Table3,Internal OOF,Without residual,Specificity,0.84512250453720505,0.88505747126436773
+Table3,Internal OOF,Without residual,FP,126.66666666666667,170.67499999999987
+Table3,Internal OOF,Residual-only,AUROC,0.87615721900082055,0.91237506887957576
+Table3,Internal OOF,Residual-only,AP,0.76400007332136899,0.82802476014620896
+Table3,Internal OOF,Residual-only,Specificity,0.42800967937084095,0.47459165154264976
+Table3,Internal OOF,Residual-only,FP,579,630.33333333333337
+Table3,Internal OOF,Final SyndNet,AUROC,0.97718575747311809,0.98954079440268128
+Table3,Internal OOF,Final SyndNet,AP,0.94002044862675971,0.97538911898785297
+Table3,Internal OOF,Final SyndNet,Specificity,0.9029038112522686,0.93375680580762255
+Table3,Internal OOF,Final SyndNet,FP,73,107
+Table3,Internal OOF,Permuted patient-specific correspondence,AUROC,0.95513847954339792,0.97729093047670557
+Table3,Internal OOF,Permuted patient-specific correspondence,AP,0.91349979892179534,0.95610354172892187
+Table3,Internal OOF,Permuted patient-specific correspondence,Specificity,0.73986690865093774,0.77646702964307313
+Table3,Internal OOF,Permuted patient-specific correspondence,FP,246.33333333333334,286.66666666666669
+Table3,Internal OOF,Parameter-matched shuffled anatomical support prior,AUROC,0.97702996746019299,0.98956579747803852
+Table3,Internal OOF,Parameter-matched shuffled anatomical support prior,AP,0.93900146569781695,0.97526572933139821
+Table3,Internal OOF,Parameter-matched shuffled anatomical support prior,Specificity,0.90320629159104648,0.93405928614640044
+Table3,Internal OOF,Parameter-matched shuffled anatomical support prior,FP,72.666666666666671,106.66666666666667
+Table3,Internal OOF,Final SyndNet – Permuted patient-specific correspondence,ΔAUROC,0.0079369492793553986,0.022327409268536848
+Table3,Internal OOF,Final SyndNet – Parameter-matched shuffled anatomical support prior,ΔAUROC,-0.00057378582369860265,0.0011551547199570883
+Table3,Internal OOF,Matched residual – Without residual,ΔAUROC,0.0035627486615877196,0.017379359634799234
+Table2,Internal OOF,Final SyndNet,AP,0.94014630350516493,0.97599259856277021
+Table2,Internal OOF,Final SyndNet,Sensitivity,0.91922005571030641,0.96657381615598881
+Table2,Internal OOF,Final SyndNet,Specificity,0.91016333938294014,0.94010889292196009
+Table2,Internal OOF,Final SyndNet,Accuracy,0.91718001368925395,0.94250513347022591
+Table2,Center 1,Final SyndNet,AP,0.95173688709355175,1
+Table2,Center 1,Final SyndNet,Sensitivity,0.8928571428571429,1
+Table2,Center 1,Final SyndNet,Specificity,0.81818181818181823,0.94318181818181823
+Table2,Center 1,Final SyndNet,Accuracy,0.85344827586206895,0.9568965517241379
+Table2,Center 2,Final SyndNet,AP,0.87871148459383752,1
+Table2,Center 2,Final SyndNet,Sensitivity,0.80000000000000004,1
+Table2,Center 2,Final SyndNet,Specificity,0.83783783783783783,0.97297297297297303
+Table2,Center 2,Final SyndNet,Accuracy,0.84269662921348309,0.9662921348314607
+Table2,Center 3,Final SyndNet,AP,0.95061435052161292,1
+Table2,Center 3,Final SyndNet,Sensitivity,0.83182077594738368,1
+Table2,Center 3,Final SyndNet,Specificity,0.88932806324110669,0.95652173913043481
+Table2,Center 3,Final SyndNet,Accuracy,0.8970588235294118,0.9595588235294118
+Table2,Center 4,Final SyndNet,AP,0.90977709456675526,0.99603213475762509
+Table2,Center 4,Final SyndNet,Sensitivity,0.80555555555555558,1
+Table2,Center 4,Final SyndNet,Specificity,0.78947368421052633,0.93421052631578949
+Table2,Center 4,Final SyndNet,Accuracy,0.8214285714285714,0.9375
+Table2,Pooled external validation,Final SyndNet,AP,0.93418137783685806,0.98600515082120999
+Table2,Pooled external validation,Final SyndNet,Sensitivity,0.89795918367346939,0.98979591836734693
+Table2,Pooled external validation,Final SyndNet,Specificity,0.87983706720977595,0.93075356415478616
+Table2,Pooled external validation,Final SyndNet,Accuracy,0.88964346349745327,0.93548387096774188
+Table4,Reader-study cases,Final SyndNet,AUROC,0.97829257789481061,0.98959245935101736
+Table4,Reader-study cases,Final SyndNet,Sensitivity,0.93216630196936545,0.96936542669584247
+Table4,Reader-study cases,Final SyndNet,Specificity,0.90332705586942874,0.93032015065913376
+Table4,Reader-study cases,Final SyndNet,Accuracy,0.91317073170731711,0.93609756097560981

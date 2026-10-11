@@ -1,0 +1,8 @@
+{
+  "internal_primary": "outer-fold inherited; retained per patient",
+  "external_primary": "single internal-derived global threshold",
+  "global_threshold": 0.012530357984719657,
+  "ablation": "model/seed-specific internal OOF threshold; frozen before this uncertainty audit",
+  "bootstrap": "no threshold refitting",
+  "external_development_use": false
+}

@@ -1,0 +1,8 @@
+component,publication_name,seeds,folds,training_history,validation_history,patient_predictions,threshold_metadata,included,reason_if_not_included
+model configuration,Image-only baseline,42;123;456,0;1;2;3;4,recorded,final held-out fold metrics only; no validation-loss epoch series recorded,available,fixed internal OOF-derived model/seed thresholds,True,
+model configuration,Matched residual,42;123;456,0;1;2;3;4,recorded,final held-out fold metrics only; no validation-loss epoch series recorded,available,fixed internal OOF-derived model/seed thresholds,True,
+model configuration,Without residual,42;123;456,0;1;2;3;4,shared matched-residual history,final held-out fold metrics only; no validation-loss epoch series recorded,available,fixed internal OOF-derived model/seed thresholds,True,
+model configuration,Residual-only,42;123;456,0;1;2;3;4,shared matched-residual history,final held-out fold metrics only; no validation-loss epoch series recorded,available,fixed internal OOF-derived model/seed thresholds,True,
+model configuration,Final SyndNet,42;123;456,0;1;2;3;4,scalar fitting; no epoch history,final held-out fold metrics only; no validation-loss epoch series recorded,available,fixed internal OOF-derived model/seed thresholds,True,
+model configuration,Permuted patient-specific correspondence,42;123;456,0;1;2;3;4,shared matched-residual history,final held-out fold metrics only; no validation-loss epoch series recorded,available,fixed internal OOF-derived model/seed thresholds,True,
+model configuration,Parameter-matched shuffled anatomical support prior,42;123;456,0;1;2;3;4,recorded,final held-out fold metrics only; no validation-loss epoch series recorded,available,fixed internal OOF-derived model/seed thresholds,True,
