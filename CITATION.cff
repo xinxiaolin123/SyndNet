@@ -4,7 +4,7 @@ type: software
 title: "SyndNet: anatomy-aware prediction of ankle syndesmotic mechanical stability"
 authors:
   - name: "SyndNet authors"
-version: 1.0.0
+version: 1.1.0
 repository-code: "https://github.com/xinxiaolin123/SyndNet"
 license: Apache-2.0
-abstract: "Scientific implementation and frozen derived inputs for numerical analyses of SyndNet, including diagnostic performance, ablations, bootstrap intervals, and an MRMC reader study. Raw radiographs and imaging checkpoints are not included."
+abstract: "Scientific implementation and frozen derived inputs for numerical analyses of SyndNet, including diagnostic performance, ablations, bootstrap intervals, and an MRMC reader study. Frozen inference checkpoints and a verified paired-image adapter are supplied as versioned Release materials. Raw radiographs and restricted retraining inputs are not included."

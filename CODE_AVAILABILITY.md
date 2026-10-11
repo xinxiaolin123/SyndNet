@@ -1,9 +1,7 @@
 # Code availability
 
-The SyndNet scientific implementation and scripts for numerical reproduction are available at https://github.com/xinxiaolin123/SyndNet under the Apache License 2.0. The publication release is prepared as version 1.0.0; its GitHub release and archival publication status are tracked separately in `docs/RELEASE_STATUS.json`.
+Custom code, configuration files and frozen model checkpoints used to implement and evaluate SyndNet are publicly available in the SyndNet GitHub repository (https://github.com/xinxiaolin123/SyndNet; version 1.1.0, with large weights hosted as Release assets). The released checkpoints and locked inference pipeline enable reproduction of SyndNet inference on appropriately preprocessed paired anteroposterior and lateral ankle radiographs. Full model retraining requires controlled-access imaging data and study manifests that are not publicly released.
 
-Released code covers diagnostic/ablation evaluation, bootstrap analyses, and MRMC statistics. Derived predictions and de-identified reader inputs are included; raw clinical imaging, restricted manifests, and frozen imaging checkpoints are not. Consequently, numerical analyses are supported, while inference on new radiographs and complete model retraining require additional materials.
+Project software and authored model states use Apache-2.0; third-party licences are retained separately. CUDA float16 is the verified inference scope. Batch context, aggregation and fidelity limitations are described in the final inference specification and validation reports. v1.0.0 remains the immutable numerical release without inference weights.
 
-The frozen version is intended for deposition in a DOI-minting repository such as Zenodo. DOI_PENDING is a placeholder; no DOI has been minted or asserted here. GitHub access is not a substitute for archival deposition. Third-party licenses apply independently of the SyndNet license.
-
-Policy references: [Nature Communications policy guide](https://www.nature.com/ncomms/submit/policy) and [Nature code-publication guidance](https://media.nature.com/full/nature-cms/documents/GuidelinesCodePublication.pdf).
+Zenodo archival deposition has not been performed. DOI_PENDING denotes an absent DOI, not a minted identifier. GitHub access does not substitute for DOI-based preservation.

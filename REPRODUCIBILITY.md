@@ -45,8 +45,18 @@ Reader-averaged AUROCs use iMRMC U-statistic estimates with BDG variance and deg
 
 Numerical Python reproduction requires only released derived data. R GLMM and bootstrap calculations require more time than point-metric commands. The verification report records measured elapsed times on the validation machine; these are not universal runtime guarantees. No GPU is required for released numerical analyses. Installation duration depends on package availability and hardware and was not measured as a clean historical environment restoration.
 
-Model implementation/training imports require PyTorch, torchvision, Pillow and other supplied dependencies. GPU memory, hardware, image preprocessing completeness, checkpoint availability and full retraining runtime have not been established from the public archive. No claim of verified new-image inference or full retraining is made.
+Version 1.1.0 adds verified inference checkpoints and an isolated fresh-environment paired-image test. CUDA float16 inference is supported in the documented environment; CPU fidelity and complete public retraining are not established.
 
 ## Verification
 
 `docs/VALIDATION_REPORT.json` distinguishes checks actually run from checks supported by retained frozen outputs. Integrity tests cover every frozen payload file, R QC statuses, paired record counts, and the official unmodified license. Full R refitting is not part of this repository-construction pass; the original clean-R results and actual environment are preserved. Exact manuscript-text concordance remains unverified because no manuscript was supplied.
+
+## Inference verification (v1.1.0)
+
+Checkpoint manifest SHA256: `826333f9ab894b89c2c9d14501bbf3208256a586869ad05ec0b561211afcc953`. Weight archive SHA256: `160aa8f1e976d9aea65bd344dea90b331753aee394e70f453af2f4cae40b02e9`. Install `environments/inference-verified.txt`, run `python scripts/download_weights.py --output-dir downloaded_weights`, then:
+
+```bash
+python scripts/infer_pair.py --ap path/to/AP.png --lat path/to/LAT.png --weights-dir downloaded_weights/weights --output prediction.json
+```
+
+All 15 full model states load strictly without missing or unexpected keys. The 90-case locked fidelity sample covers all five internal folds and four external centres with both labels; maximum absolute difference is 5.96e-8, with zero decision mismatches. This is not a full 2050-case rerun. A separate 40-case single-pair audit verifies the published batch-size-4 rule. The initial different-batch attempt failed the same tolerance; its findings and original-batch replay are disclosed. Full retraining requires controlled-access data, annotations and manifests. Domain-specific SSL initialization is training-only once complete diagnostic states are supplied. Detailed hardware, versions, scope and measured runtime are in `docs/CHECKPOINT_FIDELITY_REPORT.json` and `docs/INFERENCE_SMOKE_TEST.json`.

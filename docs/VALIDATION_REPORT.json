@@ -91,5 +91,11 @@
   "complete_retraining": "NOT SUPPORTED by public materials",
   "manuscript_text_correspondence": "NOT TESTED: manuscript not supplied",
   "R_structural_and_frozen_output_validation": "PASS: see R_VALIDATION.csv; zero statistical refits",
-  "minimal_nonclinical_example": "PASS: metric interface executed on four invented observations; no study claim"
+  "minimal_nonclinical_example": "PASS: metric interface executed on four invented observations; no study claim",
+  "verification_scope_version": "1.0.0 (retained numerical/source audit)",
+  "current_inference_reports": [
+    "INFERENCE_SMOKE_TEST.json",
+    "CHECKPOINT_FIDELITY_REPORT.json",
+    "SINGLE_PAIR_CONTEXT_AUDIT.json"
+  ]
 }

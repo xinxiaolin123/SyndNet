@@ -1,0 +1,169 @@
+{
+  "models": [
+    {
+      "seed": 42,
+      "fold": 0,
+      "source_checkpoint_sha256": "a7b8f7e4ac38bf1fd443b8f0c6e11482727a91ea3a4cf78e44f3256a84080407",
+      "components": {
+        "diagnostic": "diagnostic/fold_0_b73bede5dc80.pt",
+        "anatomy": "anatomy/fold_0_802ef43dc0bd.pt",
+        "reliability": "reliability/fold_0_60357e219af4.pt",
+        "residual": "residual/seed_42/fold_0.pt"
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 1,
+      "source_checkpoint_sha256": "820b0d73bf397a137d6850f9d5e6dea68443771213aabefd44465dedc041385a",
+      "components": {
+        "diagnostic": "diagnostic/fold_1_3d92b02b7aea.pt",
+        "anatomy": "anatomy/fold_1_933db1691190.pt",
+        "reliability": "reliability/fold_1_80da98941130.pt",
+        "residual": "residual/seed_42/fold_1.pt"
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 2,
+      "source_checkpoint_sha256": "200fb30e7781dc08ff5d50afcd02e14581f052285033ebadb23d7c440e6f0971",
+      "components": {
+        "diagnostic": "diagnostic/fold_2_baecb3687e79.pt",
+        "anatomy": "anatomy/fold_2_6fb458d1aeef.pt",
+        "reliability": "reliability/fold_2_5b5a8c9fe403.pt",
+        "residual": "residual/seed_42/fold_2.pt"
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 3,
+      "source_checkpoint_sha256": "ad3b7f635aed69b78f4130067c5aae6b8efb4131588b99e4abc66f8cdee0aba2",
+      "components": {
+        "diagnostic": "diagnostic/fold_3_8b007083577a.pt",
+        "anatomy": "anatomy/fold_3_fa03668b6898.pt",
+        "reliability": "reliability/fold_3_d3bb7426a356.pt",
+        "residual": "residual/seed_42/fold_3.pt"
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 4,
+      "source_checkpoint_sha256": "994ff9b163a954e244a6c88a477e1932d24300885a90e0740cc1e42ec45d9ce6",
+      "components": {
+        "diagnostic": "diagnostic/fold_4_4577de2a8733.pt",
+        "anatomy": "anatomy/fold_4_d4f1c8285969.pt",
+        "reliability": "reliability/fold_4_f1475aa90d59.pt",
+        "residual": "residual/seed_42/fold_4.pt"
+      }
+    },
+    {
+      "seed": 123,
+      "fold": 0,
+      "source_checkpoint_sha256": "43ba8255b269cd739a421de43b3128e7509bce5178531b6df59a5e952f58708a",
+      "components": {
+        "diagnostic": "diagnostic/fold_0_b73bede5dc80.pt",
+        "anatomy": "anatomy/fold_0_802ef43dc0bd.pt",
+        "reliability": "reliability/fold_0_60357e219af4.pt",
+        "residual": "residual/seed_123/fold_0.pt"
+      }
+    },
+    {
+      "seed": 123,
+      "fold": 1,
+      "source_checkpoint_sha256": "d5409d4504ad060d5f0bde0eaf5b013f7aa044a09ca7e0c6b497e8b3b3484e29",
+      "components": {
+        "diagnostic": "diagnostic/fold_1_3d92b02b7aea.pt",
+        "anatomy": "anatomy/fold_1_933db1691190.pt",
+        "reliability": "reliability/fold_1_80da98941130.pt",
+        "residual": "residual/seed_123/fold_1.pt"
+      }
+    },
+    {
+      "seed": 123,
+      "fold": 2,
+      "source_checkpoint_sha256": "96a3644d457e4f05b5bbfdbc99df21ead79613f7a24617cd2acb3fd663257d1c",
+      "components": {
+        "diagnostic": "diagnostic/fold_2_baecb3687e79.pt",
+        "anatomy": "anatomy/fold_2_6fb458d1aeef.pt",
+        "reliability": "reliability/fold_2_5b5a8c9fe403.pt",
+        "residual": "residual/seed_123/fold_2.pt"
+      }
+    },
+    {
+      "seed": 123,
+      "fold": 3,
+      "source_checkpoint_sha256": "cfef894c52ec4db3067b8a9232fc526facea3a7ae095e9c1c450f3106209db58",
+      "components": {
+        "diagnostic": "diagnostic/fold_3_8b007083577a.pt",
+        "anatomy": "anatomy/fold_3_fa03668b6898.pt",
+        "reliability": "reliability/fold_3_d3bb7426a356.pt",
+        "residual": "residual/seed_123/fold_3.pt"
+      }
+    },
+    {
+      "seed": 123,
+      "fold": 4,
+      "source_checkpoint_sha256": "f6a4faef4443c15f928989fbb695074cc8f9f780229051fb48cf7c461eb5a715",
+      "components": {
+        "diagnostic": "diagnostic/fold_4_4577de2a8733.pt",
+        "anatomy": "anatomy/fold_4_d4f1c8285969.pt",
+        "reliability": "reliability/fold_4_f1475aa90d59.pt",
+        "residual": "residual/seed_123/fold_4.pt"
+      }
+    },
+    {
+      "seed": 456,
+      "fold": 0,
+      "source_checkpoint_sha256": "13a55c5f76a7f321e268e76d41174c5d148e2e7301dee093229c61f985661f5e",
+      "components": {
+        "diagnostic": "diagnostic/fold_0_b73bede5dc80.pt",
+        "anatomy": "anatomy/fold_0_802ef43dc0bd.pt",
+        "reliability": "reliability/fold_0_60357e219af4.pt",
+        "residual": "residual/seed_456/fold_0.pt"
+      }
+    },
+    {
+      "seed": 456,
+      "fold": 1,
+      "source_checkpoint_sha256": "f356f961010e162f86e119951ac50369f3b9944af9fa90f98f41db43ad0d9183",
+      "components": {
+        "diagnostic": "diagnostic/fold_1_3d92b02b7aea.pt",
+        "anatomy": "anatomy/fold_1_933db1691190.pt",
+        "reliability": "reliability/fold_1_80da98941130.pt",
+        "residual": "residual/seed_456/fold_1.pt"
+      }
+    },
+    {
+      "seed": 456,
+      "fold": 2,
+      "source_checkpoint_sha256": "528571e548f19e1ee91d4f0348fa5c5e1cee684f09f3a18fd5d004fa6ac7bdfb",
+      "components": {
+        "diagnostic": "diagnostic/fold_2_baecb3687e79.pt",
+        "anatomy": "anatomy/fold_2_6fb458d1aeef.pt",
+        "reliability": "reliability/fold_2_5b5a8c9fe403.pt",
+        "residual": "residual/seed_456/fold_2.pt"
+      }
+    },
+    {
+      "seed": 456,
+      "fold": 3,
+      "source_checkpoint_sha256": "dc1c89f1559756d4232fd1f8ee89b50a50ea68767c73a642448144adc7a20fc6",
+      "components": {
+        "diagnostic": "diagnostic/fold_3_8b007083577a.pt",
+        "anatomy": "anatomy/fold_3_fa03668b6898.pt",
+        "reliability": "reliability/fold_3_d3bb7426a356.pt",
+        "residual": "residual/seed_456/fold_3.pt"
+      }
+    },
+    {
+      "seed": 456,
+      "fold": 4,
+      "source_checkpoint_sha256": "71103cbe9ae9f1c3904bb140aebf355e320928bbe6721a26864db9c63e704c42",
+      "components": {
+        "diagnostic": "diagnostic/fold_4_4577de2a8733.pt",
+        "anatomy": "anatomy/fold_4_d4f1c8285969.pt",
+        "reliability": "reliability/fold_4_f1475aa90d59.pt",
+        "residual": "residual/seed_456/fold_4.pt"
+      }
+    }
+  ]
+}

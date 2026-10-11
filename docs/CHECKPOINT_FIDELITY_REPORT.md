@@ -1,0 +1,34 @@
+# Checkpoint fidelity verification
+
+{
+  "status": "PASS",
+  "N": 90,
+  "mean_absolute_difference": 5.646574278270354e-09,
+  "maximum_absolute_difference": 5.960464477539063e-08,
+  "outside_tolerance": 0,
+  "decision_mismatches": 0,
+  "absolute_tolerance": 1e-05,
+  "tolerance_justification": "Predeclared absolute probability tolerance retained without relaxation. No external tuning. Zero decision mismatches required.",
+  "selection": "Five earliest already-approved case codes per internal fold/label and per external centre/label, fixed before inference. 50 internal OOF and 40 external cases.",
+  "scope": "Internal: corresponding held-out fold across three seeds, original manifest batch-size-12 context and float64 integration, inherited fold threshold. External: all 15 instances, batch-size-4 float32 integration, locked global threshold. Stratified fidelity sample, not complete 2050-case set.",
+  "first_attempt": {
+    "status": "FAIL",
+    "maximum_difference": 0.007227226356468275,
+    "outside_tolerance": 8,
+    "decision_mismatches": 0,
+    "cause": "Internal samples used a different batch-size kernel context; original size-12 replay gives exact baseline and residual intermediates. No weights, alpha, threshold, cases or tolerance changed."
+  },
+  "hardware": "NVIDIA GeForce RTX 5090 D v2",
+  "OS": "Windows-11-10.0.26100-SP0",
+  "Python": "3.12.14",
+  "PyTorch": "2.14.0+cu132",
+  "CUDA": "13.2",
+  "deterministic_settings": {
+    "seed": 0,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "precision": "CUDA float16 autocast, float32 logits; original integration dtype by scope"
+  },
+  "runtime_seconds": 90.30732970000099,
+  "manifest_sha256": "826333f9ab894b89c2c9d14501bbf3208256a586869ad05ec0b561211afcc953"
+}

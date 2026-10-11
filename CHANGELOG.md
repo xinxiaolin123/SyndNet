@@ -1,3 +1,7 @@
+# Version 1.1.0
+
+Adds losslessly extracted frozen inference weights, exact component deduplication, safe strict loading, paired-image inference, source provenance, fidelity and clean-environment reports, a model card and Release asset download verification. Preserves every v1.0.0 frozen scientific payload file and numerical output byte-for-byte. The original v1.0.0 tag and Release are unchanged. No alpha, threshold or clinical result is refitted.
+
 # Changelog
 
 ## 1.0.0 — publication release preparation

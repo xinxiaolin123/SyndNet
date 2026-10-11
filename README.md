@@ -46,11 +46,11 @@ Released derived predictions support diagnostic metrics, ablations, the fixed Sy
 
 ### Level 2 — Inference reproduction
 
-Frozen model checkpoints are not included in this public release. The implementation can be inspected, but trained-model inference on new radiographs cannot be reproduced from this repository alone.
+Publicly reproducible using the released frozen inference checkpoints and locked preprocessing/inference pipeline. Version 1.1.0 adds a lossless Release weight asset and a verified paired-image command. Supported verification environment: Python 3.12, PyTorch 2.14.0+cu132, torchvision 0.29.0+cu132, CUDA GPU; CPU fidelity is not established. [Fidelity report](docs/CHECKPOINT_FIDELITY_REPORT.md), [single-pair context audit](docs/SINGLE_PAIR_CONTEXT_AUDIT.json), and [clean-environment smoke test](docs/INFERENCE_SMOKE_TEST.json) describe the checks and batch-size sensitivity.
 
-### Level 3 — Model retraining
+### Level 3 — Full model retraining
 
-Retraining requires controlled-access radiographs, study manifests, annotations, preprocessing inputs, and starting checkpoints that are not included. Released training code alone does not establish complete retraining reproducibility. Raw clinical images are not publicly downloadable here.
+Requires controlled-access radiographs, annotations and study manifests and is therefore not fully reproducible from public materials alone. The trained diagnostic states include their encoder and prototype buffers; domain-specific SSL initialization is not an additional inference dependency.
 
 ## Quick start
 
@@ -77,3 +77,19 @@ See [DATA_ACCESS.md](DATA_ACCESS.md) and [CODE_AVAILABILITY.md](CODE_AVAILABILIT
 Copyright 2026 SyndNet authors. Project code is licensed under the unmodified [Apache License 2.0](LICENSE). Third-party software retains its own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Research-purpose statements do not add restrictions to the license.
 
 Citation metadata is in [CITATION.cff](CITATION.cff). The collective credit is supplied; individual author names, affiliations, funding and article identifiers have not been invented. Archival DOI: **DOI_PENDING**. GitHub provides versioned access but does not itself establish DOI-based archival permanence; see [archival instructions](docs/ARCHIVING.md).
+
+## Paired-image inference (v1.1.0)
+
+Use a separate Python 3.12 environment for inference; it is independent of the numerical-analysis environment.
+
+```bash
+python -m venv .venv
+# Activate the environment for your operating system.
+python -m pip install -r environments/inference-verified.txt
+python scripts/download_weights.py --output-dir downloaded_weights
+python scripts/infer_pair.py --ap path/to/AP.png --lat path/to/LAT.png --weights-dir downloaded_weights/weights --output prediction.json
+```
+
+For a nonclinical plumbing test, generate patterns with `python examples/make_synthetic_pair.py --output-dir synthetic`, then supply `synthetic/AP.png` and `synthetic/LAT.png` to the same command. Synthetic predictions have no diagnostic meaning. Installation requires approximately 2 GB for the PyTorch wheel download plus the extracted environment; weights require approximately 924 MB uncompressed. Inference runtime is recorded in the smoke report and varies by hardware.
+
+The single-pair adapter preserves the original external batch-size-4 CUDA kernel context using four identical copies and returns the first prediction. Full clinical scope, image conventions, aggregation and numerical sensitivity are documented in [MODEL_CARD.md](MODEL_CARD.md), [preprocessing](docs/INFERENCE_PREPROCESSING.md), and [final specification](docs/FINAL_INFERENCE_SPECIFICATION.md). The v1.0.0 tag and Release remain immutable; all frozen numerical outputs are unchanged.

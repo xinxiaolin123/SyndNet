@@ -1,3 +1,5 @@
+> Retained v1.0.0 audit of the original numerical submission archive. Version 1.1.0 adds separately verified inference states; see `CHECKPOINT_RELEASE_FINAL_AUDIT.md` for the current complete publication gate. Historical statements about absent weights describe the original archive.
+
 # Public-release safety audit
 
 Status: PASS. The frozen submission archive was inspected before repository construction. No scientific material was deleted or regenerated. Private review staging is ignored by Git and is not part of the public repository.

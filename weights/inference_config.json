@@ -1,0 +1,43 @@
+{
+  "model_version": "1.1.0",
+  "image_size": 384,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "fixed_threshold": 0.012530357984719657,
+  "threshold_provenance": {
+    "source": "FINAL_FREEZE.json",
+    "sha256": "aea009197e061dbe7c53e94a91697fb3850f00cadf3886c373a3e4e36c5335bd",
+    "field": "external_global_threshold_final",
+    "policy": "Internal-derived global; frozen before external evaluation"
+  },
+  "precision": "CUDA float16 autocast; logits converted to float32 before integration",
+  "aggregation": "mean fold logits, sigmoid per seed, mean seed probabilities",
+  "alpha_by_checkpoint": {
+    "seed_42_fold_0": 1.3385771305283078,
+    "seed_42_fold_1": 1.1317754153481387,
+    "seed_42_fold_2": 1.1538363744269342,
+    "seed_42_fold_3": 1.1452364230453003,
+    "seed_42_fold_4": 1.316272867926166,
+    "seed_123_fold_0": 1.339693388343051,
+    "seed_123_fold_1": 1.1425019702090284,
+    "seed_123_fold_2": 1.1719832299304702,
+    "seed_123_fold_3": 1.141709032242203,
+    "seed_123_fold_4": 1.3043247570445005,
+    "seed_456_fold_0": 1.341595406923015,
+    "seed_456_fold_1": 1.1410932242382832,
+    "seed_456_fold_2": 1.1835709144246425,
+    "seed_456_fold_3": 1.1425643955513811,
+    "seed_456_fold_4": 1.3225799148770967
+  },
+  "single_pair_batch_policy": "Repeat identical preprocessed AP/LAT tensors to batch size 4; return first result. This matches the authoritative external CUDA kernel context."
+}

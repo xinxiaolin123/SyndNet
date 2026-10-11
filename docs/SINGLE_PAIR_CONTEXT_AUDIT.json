@@ -1,0 +1,16 @@
+{
+  "N": 40,
+  "runtime_seconds": 62.4801535000006,
+  "contexts": {
+    "1": {
+      "maximum_absolute_difference": 0.00016266107559204102,
+      "outside_1e_minus_5": 11,
+      "decision_mismatches": 0
+    },
+    "4": {
+      "maximum_absolute_difference": 5.960464477539063e-08,
+      "outside_1e_minus_5": 0,
+      "decision_mismatches": 0
+    }
+  }
+}

@@ -20,3 +20,6 @@ Thumbs.db
 MRMC/renv/library/
 MRMC/renv/staging/
 MRMC/renv/local/
+/downloaded_weights/
+*.safetensors
+*.pkl

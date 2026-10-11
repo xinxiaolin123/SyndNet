@@ -1,0 +1,9 @@
+# SyndNet model card
+
+This model is intended for research on anatomy-aware prediction of ankle syndesmotic mechanical stability in the fracture-associated population represented by the study. It takes one correctly oriented paired anteroposterior and lateral ankle radiographic examination, using the locked 384 × 384 preprocessing path. It outputs a probability of mechanical instability and a binary prediction at a fixed internal-derived operating threshold. Labels are defined by the study's mechanical reference standard; the output is not a direct measurement of stress, strain, force or material properties.
+
+The release does not establish generalization to isolated ligament injuries, postoperative examinations, alternative projections, unpaired views or populations outside the study scope. It is not an autonomous clinical system. Model assistance does not replace intraoperative mechanical testing or clinical judgment. The reader study found that erroneous AI advice can reduce reader accuracy; assistance must not be interpreted as a guarantee of a correct decision.
+
+Version 1.1.0 uses the three-seed, five-fold final model graph and frozen per-instance alpha values. Checkpoint identity and integrity are defined by `weights/MANIFEST.json` and the release asset SHA256. The documented new-case ensemble differs from held-out-fold internal OOF evaluation; see `docs/FINAL_INFERENCE_SPECIFICATION.md`. Fidelity testing is a numerical reproduction check, and a synthetic image smoke test is a plumbing check; neither is new evidence of diagnostic performance.
+
+Raw radiographs, source clinical records, restricted annotations and study manifests remain controlled. Full retraining is not supported by public materials alone. Research-use statements describe evidence scope and do not restrict the Apache-2.0 licence.

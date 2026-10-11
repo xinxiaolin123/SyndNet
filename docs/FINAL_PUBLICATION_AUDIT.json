@@ -4,5 +4,11 @@
   "scope": "All Git publication candidates: file types, private paths, credentials, DICOM UIDs and sensitive assignments; original source audit additionally covers clinical identifiers and CSV schemas.",
   "findings": [],
   "legal_attribution": "Public names and addresses in upstream license texts are retained legal attribution.",
-  "limitations": "Pattern screening cannot prove institutional permission or absence of all re-identification risk. Frozen case/reader codes are derived publication inputs."
+  "limitations": "Pattern screening cannot prove institutional permission or absence of all re-identification risk. Frozen case/reader codes are derived publication inputs.",
+  "verification_scope_version": "1.0.0 (retained numerical/source audit)",
+  "current_inference_reports": [
+    "INFERENCE_SMOKE_TEST.json",
+    "CHECKPOINT_FIDELITY_REPORT.json",
+    "SINGLE_PAIR_CONTEXT_AUDIT.json"
+  ]
 }
