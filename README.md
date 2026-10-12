@@ -21,7 +21,7 @@ python scripts/download_weights.py --output-dir downloaded_weights
 python scripts/infer_pair.py --ap path/to/AP.png --lat path/to/LAT.png --weights-dir downloaded_weights/weights --output prediction.json
 ```
 
-The downloader verifies the existing archive and extracts final tensor states only. Checkpoint names, purposes and SHA256 hashes are listed in [weights/README.md](weights/README.md). Use the supplied configuration without changing its inference parameters. The compressed archive requires approximately 859 MB and the extracted states approximately 924 MB.
+Released checkpoints are provided for inference. Use the supplied configuration for reproducible execution. Checkpoint names, purposes and SHA256 hashes are listed in [weights/README.md](weights/README.md).
 
 Supply correctly oriented, exported AP/lateral images. The adapter performs deterministic grayscale conversion, border cropping, square padding, resizing and normalization; it does not perform DICOM conversion or automatic orientation correction. See [preprocessing](docs/INFERENCE_PREPROCESSING.md). Output contains a probability, the supplied operating parameter and a binary model prediction. Predictions are research outputs and do not replace clinical assessment.
 
@@ -32,7 +32,7 @@ python examples/make_synthetic_pair.py --output-dir synthetic
 python scripts/infer_pair.py --ap synthetic/AP.png --lat synthetic/LAT.png --weights-dir downloaded_weights/weights --output synthetic_prediction.json
 ```
 
-Synthetic images and outputs have no diagnostic meaning. Preserve the adapter's execution context; arbitrary batch changes may change probabilities. See [runtime scope](docs/INFERENCE_VALIDATION.md).
+Synthetic images and outputs have no diagnostic meaning.
 
 ## Public checks
 
