@@ -34,7 +34,6 @@ class ProbabilisticAnatomyHead(nn.Module):
 
 
 class ANATOMYAnatomyTeacher(nn.Module):
-    # This audited checkpoint family contains 8 anchors (5 AP + 3 LAT).
     AP_POINTS=("AP_MM_TIP","AP_FIB_TIP","AP_INCISURA_TIBIAL","AP_SYND_OPPOSITE_CORTEX","AP_PLAFOND_CENTER")
     LAT_POINTS=("LAT_PLAFOND_CENTER","LAT_MM_TIP","LAT_FIB_TIP")
     def __init__(self,encoder):

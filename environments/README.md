@@ -1,5 +1,3 @@
 # Environments
 
-`analysis-verified.txt` records the verified Python 3.12 numerical-analysis dependencies. `inference-verified.txt` records the separate CUDA inference environment. Root `requirements.txt` and `environment.yml` specify training dependencies using version ranges.
-
-The reader-study R environment is recorded in `reader_study_reproducibility/environment/renv.lock`, `sessionInfo.txt` and `package_versions.csv`. Restore from `reader_study_reproducibility/` as described in [reproducibility](../REPRODUCIBILITY.md).
+Use Python 3.12. `inference-verified.txt` records the CUDA inference environment. `analysis-verified.txt` provides dependencies for public synthetic checks. The reader framework retains R dependency records for schema integration; it does not ship the complete study analysis pipeline. Root environment files provide alternative dependency specifications. Follow the dedicated inference specification for inference execution.

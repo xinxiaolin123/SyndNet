@@ -1,18 +1,6 @@
-"""Deterministic weighted patient bootstrap with fixed classifications."""
+"""Weighted metric interface for synthetic demonstrations."""
 import numpy as np
 
-def patient_weights(labels,blocks,replicates,seed):
-    labels=np.asarray(labels);blocks=np.asarray(blocks);rng=np.random.default_rng(seed)
-    w=np.zeros((replicates,len(labels)),dtype=np.int16)
-    for block in np.unique(blocks):
-        for label in (0,1):
-            ix=np.flatnonzero((blocks==block)&(labels==label))
-            if len(ix):
-                for start in range(0,replicates,500):
-                    stop=min(start+500,replicates)
-                    draws=rng.choice(ix,size=(stop-start,len(ix)),replace=True)
-                    for j,row in enumerate(draws,start):w[j]+=np.bincount(row,minlength=len(labels)).astype(np.int16)
-    return w
 
 def weighted_metrics(labels,probability,decision,weights):
     y=np.asarray(labels,dtype=int);p=np.asarray(probability,dtype=float);q=np.asarray(decision,dtype=bool)

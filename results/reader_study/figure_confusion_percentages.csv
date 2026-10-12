@@ -1,9 +1,0 @@
-"condition","reference","prediction","row_percentage"
-"unaided","Stable","Stable",90.1825679510542
-"unaided","Stable","Unstable",9.8174320489458
-"unaided","Unstable","Stable",34.0501070174367
-"unaided","Unstable","Unstable",65.9498929825633
-"assisted","Stable","Stable",92.1963771614137
-"assisted","Stable","Unstable",7.8036228385863
-"assisted","Unstable","Stable",7.4492919050345
-"assisted","Unstable","Unstable",92.5507080949655

@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""PHENOTYPE: reliability-aware, intervention-ready biomechanical phenotype bottleneck.
-
-The outputs are standardized radiographic proxy phenotypes. They are not
-patient-specific FE stresses, strains, material properties, or force estimates.
-"""
 from __future__ import annotations
 
 import torch
@@ -25,7 +19,6 @@ PHENOTYPE_NAMES = (
 
 
 def reverse_reliability_within_views(value: torch.Tensor, ap_count: int) -> torch.Tensor:
-    """Reverse anchor/reliability correspondence but preserve view-wise marginals."""
     result = value.clone()
     for start, stop in ((0, ap_count), (ap_count, value.shape[1])):
         block = value[:, start:stop]
@@ -37,18 +30,12 @@ def reverse_reliability_within_views(value: torch.Tensor, ap_count: int) -> torc
 
 
 def derange_anchors(value: torch.Tensor, ap_count: int) -> torch.Tensor:
-    """Deterministic within-view non-identity anchor mismatch for frozen audits."""
     ap = torch.roll(value[:, :ap_count], shifts=1, dims=1)
     lat = torch.roll(value[:, ap_count:], shifts=1, dims=1)
     return torch.cat((ap, lat), 1)
 
 
 class PHENOTYPEBiomechanicalPhenotype(nn.Module):
-    """Frozen SOTA backbone plus an explicit six-axis proxy phenotype bottleneck.
-
-    The clinical residual has no direct path from image features: it may read only
-    the six phenotypes and the reliability gate. This makes interventions exact.
-    """
 
     def __init__(self, baseline, teacher, calibrator, residual_limit: float = 0.75):
         super().__init__()
@@ -77,13 +64,8 @@ class PHENOTYPEBiomechanicalPhenotype(nn.Module):
             nn.LayerNorm(geometry_dim), nn.Linear(geometry_dim, 96), nn.GELU(),
             nn.Dropout(0.10), nn.Linear(96, phenotype_count),
         )
-        # Positive weights make increasing proxy severity monotonically increase
-        # the biomechanical residual. Semantics remain "proxy", not physical units.
         self.raw_risk_weight = nn.Parameter(torch.zeros(phenotype_count))
         self.risk_bias = nn.Parameter(torch.zeros(()))
-        # Pre-specified anatomical support prevents the six named axes from
-        # becoming freely exchangeable latent channels. Rows follow the audited
-        # 5 AP + 3 LAT anchor order; columns follow PHENOTYPE_NAMES.
         support = torch.tensor([
             [0, 0, 1, 1, 0, 1],  # AP medial malleolus tip
             [1, 1, 1, 0, 0, 1],  # AP fibular tip
@@ -155,8 +137,6 @@ class PHENOTYPEBiomechanicalPhenotype(nn.Module):
         anchor_contribution = self.token_contribution(token) * self.phenotype_anchor_support.unsqueeze(0)
         weighted_anchor = anchor_contribution * reliability.unsqueeze(-1)
         token_term = weighted_anchor.sum(1) / reliability.sum(1, keepdim=True).clamp_min(1e-6)
-        # Geometry is deliberately bounded so an unlocalized geometry MLP cannot
-        # dominate the anatomy-supported, spatially auditable contribution.
         geometry_term = 0.25 * torch.tanh(
             self.geometry_contribution(self._geometry(mean, covariance, reliability))
         )

@@ -1,9 +1,11 @@
-# Data availability
+# Controlled data access
 
-The current public repository contains statistical code, aggregate reference results, checkpoint metadata and explicitly synthetic examples. Raw images, clinical source records, case-level derived predictions, reader identities or pseudonyms, assignments and actual reader responses are controlled and are not included in the current tree. Reproducing study statistics requires approved controlled inputs; synthetic formats only demonstrate schemas and execution.
+Raw radiographs and associated clinical records are not publicly available because of ethics approval and institutional data-governance requirements. Public data files are synthetic examples and schemas, not clinical records.
 
-Requests for de-identified controlled data should be submitted to Xinxiao Lin at **2060753088@qq.com**. Applicants should provide their name, institutional affiliation, principal investigator where applicable, research purpose, requested data elements and a brief data-management plan. Institutional ethics approval or exemption should be provided where required by the applicant's institution or the proposed use.
+Requests for access to de-identified controlled data should be directed to Xinxiao Lin at **2060753088@qq.com**. Include applicant identity, institutional affiliation, principal investigator where applicable, research purpose, requested data elements and a brief data-management plan. Provide ethics approval or exemption where required by the applicant's institution or proposed use.
 
-Requests are reviewed for scientific validity, consistency with original ethics approvals, patient privacy and applicable institutional/data-governance rules. Approval may require relevant institutional data-custodian review and an appropriate data-use agreement. Requests will normally receive an initial response within **30 days**. Approval and access to the complete raw dataset are not guaranteed.
+Requests undergo scientific, privacy and institutional review, including consistency with original ethics approvals and applicable data-governance rules. Approval may require the relevant institutional data custodians and an appropriate data-use agreement.
 
-Approved data will be de-identified and used only for the agreed research purpose. Re-identification and unauthorized redistribution are prohibited. Controlled-data terms are separate from the software's Apache-2.0 licence.
+Requests will normally receive an initial response within 30 days. This timeframe refers to initial acknowledgement or review response. Approval and data release are not guaranteed within 30 days, and the complete raw dataset is not automatically available.
+
+Approved data are de-identified and restricted to the agreed research purpose. Re-identification attempts and unauthorized redistribution are prohibited.
