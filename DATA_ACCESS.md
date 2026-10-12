@@ -1,17 +1,9 @@
-# Data access
+# Data availability
 
-## Released derived materials
+The current public repository contains statistical code, aggregate reference results, checkpoint metadata and explicitly synthetic examples. Raw images, clinical source records, case-level derived predictions, reader identities or pseudonyms, assignments and actual reader responses are controlled and are not included in the current tree. Reproducing study statistics requires approved controlled inputs; synthetic formats only demonstrate schemas and execution.
 
-`data/` contains release-specific de-identified case codes, reference labels, model probabilities, fixed predictions, model/seed/fold/cohort information, and individual-reader scores. `MRMC/01_input/` contains clean paired reader records, condition-level records, and recorded model predictions. Reader codes R01–R15 are pseudonyms; they are not reader names. Numeric publication exports are in `results/` and `MRMC/03_results/`.
+Requests for de-identified controlled data should be submitted to Xinxiao Lin at **2060753088@qq.com**. Applicants should provide their name, institutional affiliation, principal investigator where applicable, research purpose, requested data elements and a brief data-management plan. Institutional ethics approval or exemption should be provided where required by the applicant's institution or the proposed use.
 
-These files are the approved derived materials in the frozen submission archive. They do not contain raw radiographs, DICOM images, original clinical spreadsheets, identifiable source workbooks, or identifiable source clinical records. Public pseudonymization does not independently guarantee that all linkage risks are eliminated.
+Requests are reviewed for scientific validity, consistency with original ethics approvals, patient privacy and applicable institutional/data-governance rules. Approval may require relevant institutional data-custodian review and an appropriate data-use agreement. Requests will normally receive an initial response within **30 days**. Approval and access to the complete raw dataset are not guaranteed.
 
-## Materials not released
-
-Raw radiographic data, restricted landmark/ROI annotations, clinical source records, and restricted study manifests are not supplied. Training-only initialization checkpoints are not distributed; they are not additional inference dependencies because complete trained diagnostic states are included. Access eligibility, institutional approval, consent conditions, and a contact/access mechanism are not documented in the supplied archive; no access promise, email address, or ethics identifier is invented. Authors must specify any lawful controlled-access route in the manuscript's Data Availability statement.
-
-The Apache-2.0 software license does not establish consent, ownership, or access rights for unavailable clinical materials. Third-party and controlled-access materials are not relicensed by this repository.
-
-## Public inference weights
-
-Frozen inference states, normalization buffers, anatomical support, per-instance alpha values and locked configuration are public v1.1.0 Release materials. They contain tensors and nonidentifying configuration only. See `weights/MANIFEST.json` and `weights/WEIGHT_DISTRIBUTION.md`. This addition does not make controlled clinical materials public or establish full retraining reproducibility.
+Approved data will be de-identified and used only for the agreed research purpose. Re-identification and unauthorized redistribution are prohibited. Controlled-data terms are separate from the software's Apache-2.0 licence.

@@ -2,12 +2,17 @@
 import json
 from pathlib import Path
 import numpy as np,pandas as pd
-from reproduce import ROOT,read
+from reproduce import ROOT,read,REFERENCE_ROOT,READER_RESULTS_ROOT,OUTPUT_ROOT
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent / "code" / "bootstrap"))
 from bootstrap_core import patient_weights,weighted_metrics
 
-expected=pd.read_csv(ROOT/'results/supplementary_ci.csv',float_precision='round_trip')
+if OUTPUT_ROOT.resolve().is_relative_to(ROOT.resolve()):
+ raise ValueError('Set SYNDNET_ANALYSIS_OUTPUT_DIR to an external controlled output directory for individual-reader intervals.')
+if READER_RESULTS_ROOT.resolve().is_relative_to(ROOT.resolve()):
+ raise ValueError('Set SYNDNET_READER_RESULTS_DIR to the external approved reader-study results.')
+
+expected=pd.read_csv(REFERENCE_ROOT/'supplementary_ci.csv',float_precision='round_trip')
 pred=read('supplementary_discrimination_predictions.csv');out=[]
 for (name,cohort),d in pred.groupby(['model','cohort'],sort=False):
  refs=expected[(expected.model==name)&(expected.cohort==cohort)]
@@ -24,7 +29,7 @@ for (name,cohort),d in pred.groupby(['model','cohort'],sort=False):
  for j,key in enumerate(['AUROC','AP']):
   r=refs[refs.metric==key].iloc[0].to_dict();lo,hi=np.quantile(samples[:,j],[.025,.975]);assert np.allclose([lo,hi],[r['ci_low'],r['ci_high']],rtol=0,atol=1e-10)
   out.append(dict(r,reproduction='patient bootstrap reproduced'))
-readers=pd.read_csv(ROOT/'MRMC/03_results/reader_paired_bootstrap.csv',float_precision='round_trip')
+readers=pd.read_csv(READER_RESULTS_ROOT/'reader_paired_bootstrap.csv',float_precision='round_trip')
 for reader in readers.to_dict('records'):
  for key,condition in [('Unaided AUROC','unaided'),('Assisted AUROC','assisted'),('ΔAUROC','difference')]:
   r=expected[(expected.model==reader['reader_id'])&(expected.metric==key)].iloc[0].to_dict()
@@ -32,5 +37,6 @@ for reader in readers.to_dict('records'):
   r['ci_method']='Paired reference-class-stratified case bootstrap'
   out.append(dict(r,reproduction='R individual-reader bootstrap interval'))
 assert len(out)==len(expected)
-pd.DataFrame(out).to_csv(ROOT/'results/reproduced_supplementary_ci.csv',index=False,float_format='%.17g',encoding='utf-8',lineterminator='\n')
+OUTPUT_ROOT.mkdir(parents=True,exist_ok=True)
+pd.DataFrame(out).to_csv(OUTPUT_ROOT/'reproduced_supplementary_ci.csv',index=False,float_format='%.17g',encoding='utf-8',lineterminator='\n')
 print('Supplementary intervals checked: '+str(len(out)))

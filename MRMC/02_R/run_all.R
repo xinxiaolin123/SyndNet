@@ -1,5 +1,0 @@
-if(.Platform$OS.type=="windows") invisible(Sys.setlocale("LC_CTYPE","English_United States.utf8"))
-root <- normalizePath(Sys.getenv("SYNDNET_MRMC_ROOT","."),mustWork=TRUE)
-Sys.setenv(SYNDNET_MRMC_ROOT=root)
-for(script in c("00_input_qc.R","01_primary_imrmc.R","02_operating_glmm.R","03_secondary_glmm.R","04_safety_glmm.R","reader_intervals.R","05_publication_outputs.R","06_reproducibility_checks.R")) source(file.path(root,"02_R",script),encoding="UTF-8")
-writeLines(capture.output(sessionInfo()),file.path(root,"05_environment","sessionInfo_rerun.txt"))

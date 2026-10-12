@@ -1,0 +1,3 @@
+case_id,syndnet_predicted_label
+EXAMPLE_CASE_A,stable
+EXAMPLE_CASE_B,unstable

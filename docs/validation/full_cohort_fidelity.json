@@ -1,0 +1,200 @@
+{
+  "N": 2050,
+  "environment": {
+    "Python": "3.12.14",
+    "PyTorch": "2.14.0+cu132",
+    "CUDA": "13.2",
+    "hardware": "NVIDIA GeForce RTX 5090 D v2",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false
+  },
+  "frozen_replay": {
+    "all": {
+      "N": 2050,
+      "mean_absolute_difference": 4.26911216405024e-19,
+      "median_absolute_difference": 0.0,
+      "p95_absolute_difference": 1.734723475976807e-18,
+      "p99_absolute_difference": 3.469446951953614e-18,
+      "maximum_absolute_difference": 1.1102230246251565e-16,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "internal": {
+      "N": 1461,
+      "mean_absolute_difference": 5.990198450583841e-19,
+      "median_absolute_difference": 0.0,
+      "p95_absolute_difference": 1.734723475976807e-18,
+      "p99_absolute_difference": 3.469446951953614e-18,
+      "maximum_absolute_difference": 1.1102230246251565e-16,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_1": {
+      "N": 116,
+      "mean_absolute_difference": 0.0,
+      "median_absolute_difference": 0.0,
+      "p95_absolute_difference": 0.0,
+      "p99_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.0,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_2": {
+      "N": 89,
+      "mean_absolute_difference": 0.0,
+      "median_absolute_difference": 0.0,
+      "p95_absolute_difference": 0.0,
+      "p99_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.0,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_3": {
+      "N": 272,
+      "mean_absolute_difference": 0.0,
+      "median_absolute_difference": 0.0,
+      "p95_absolute_difference": 0.0,
+      "p99_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.0,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_4": {
+      "N": 112,
+      "mean_absolute_difference": 0.0,
+      "median_absolute_difference": 0.0,
+      "p95_absolute_difference": 0.0,
+      "p99_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.0,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    }
+  },
+  "public_pair_vs_frozen": {
+    "all": {
+      "N": 2050,
+      "mean_absolute_difference": 2.1047614065662417e-05,
+      "median_absolute_difference": 2.684430267219616e-07,
+      "p95_absolute_difference": 3.11955892703478e-05,
+      "p99_absolute_difference": 0.0003514927525199012,
+      "maximum_absolute_difference": 0.007227226356468275,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "internal": {
+      "N": 1461,
+      "mean_absolute_difference": 2.9414731161341507e-05,
+      "median_absolute_difference": 8.360750426324171e-07,
+      "p95_absolute_difference": 4.8949273696918816e-05,
+      "p99_absolute_difference": 0.0005485024479648067,
+      "maximum_absolute_difference": 0.007227226356468275,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_1": {
+      "N": 116,
+      "mean_absolute_difference": 5.100864447369569e-09,
+      "median_absolute_difference": 3.1044085791603893e-10,
+      "p95_absolute_difference": 3.973642981325298e-08,
+      "p99_absolute_difference": 5.960464477539063e-08,
+      "maximum_absolute_difference": 5.960464477539063e-08,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_2": {
+      "N": 89,
+      "mean_absolute_difference": 4.647892625190235e-09,
+      "median_absolute_difference": 1.5522042939170033e-10,
+      "p95_absolute_difference": 3.973642981325298e-08,
+      "p99_absolute_difference": 5.960464477539063e-08,
+      "maximum_absolute_difference": 5.960464477539063e-08,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_3": {
+      "N": 272,
+      "mean_absolute_difference": 1.8911783171032805e-09,
+      "median_absolute_difference": 1.5522042939170033e-10,
+      "p95_absolute_difference": 1.9868214962137642e-08,
+      "p99_absolute_difference": 3.973642981325298e-08,
+      "maximum_absolute_difference": 3.973642981325298e-08,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_4": {
+      "N": 112,
+      "mean_absolute_difference": 1.5282753988055293e-06,
+      "median_absolute_difference": 3.1044085791603893e-10,
+      "p95_absolute_difference": 3.973642981325298e-08,
+      "p99_absolute_difference": 5.960464477539063e-08,
+      "maximum_absolute_difference": 0.0001704692840576172,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    }
+  },
+  "batch_context_4_vs_1": {
+    "all": {
+      "N": 2050,
+      "mean_absolute_difference": 2.3332619093707763e-05,
+      "median_absolute_difference": 8.698552846908569e-07,
+      "p95_absolute_difference": 5.9822388720931485e-05,
+      "p99_absolute_difference": 0.000471523409942165,
+      "maximum_absolute_difference": 0.0041446685791015625,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "internal": {
+      "N": 1461,
+      "mean_absolute_difference": 2.7915331884287298e-05,
+      "median_absolute_difference": 7.371418178081512e-07,
+      "p95_absolute_difference": 6.216764450073242e-05,
+      "p99_absolute_difference": 0.0007148623699322343,
+      "maximum_absolute_difference": 0.0041446685791015625,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_1": {
+      "N": 116,
+      "mean_absolute_difference": 1.7161220966954716e-05,
+      "median_absolute_difference": 1.7317943274974823e-06,
+      "p95_absolute_difference": 0.00010383129119873047,
+      "p99_absolute_difference": 0.00022217779769562185,
+      "maximum_absolute_difference": 0.00044454634189605713,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_2": {
+      "N": 89,
+      "mean_absolute_difference": 7.153017577365972e-06,
+      "median_absolute_difference": 7.413327693939209e-07,
+      "p95_absolute_difference": 2.070404661935754e-05,
+      "p99_absolute_difference": 0.0001645374286454171,
+      "maximum_absolute_difference": 0.00017786026000976562,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_3": {
+      "N": 272,
+      "mean_absolute_difference": 9.916623639583122e-06,
+      "median_absolute_difference": 9.827781468629837e-07,
+      "p95_absolute_difference": 2.5979428755817935e-05,
+      "p99_absolute_difference": 0.00028648003353737295,
+      "maximum_absolute_difference": 0.0003432333469390869,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    },
+    "center_4": {
+      "N": 112,
+      "mean_absolute_difference": 1.538330798211973e-05,
+      "median_absolute_difference": 1.6302801668643951e-06,
+      "p95_absolute_difference": 8.960068225860596e-05,
+      "p99_absolute_difference": 0.00016666650481056422,
+      "maximum_absolute_difference": 0.00029815733432769775,
+      "decision_concordance": 1.0,
+      "discordant_decisions": 0
+    }
+  },
+  "runtime_seconds": 1829.2398546999975,
+  "evaluation_protocol": "Internal OOF uses the corresponding held-out fold across seeds and inherited fold threshold. External uses all five fold logits per seed and the locked global threshold. Original internal batching is 12; new-pair kernel context is four identical copies. No weights, alpha or threshold refitted.",
+  "verification_date": "2026-10-12"
+}

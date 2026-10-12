@@ -1,95 +1,90 @@
 # SyndNet
 
-**An anatomy-aware deep learning framework for predicting ankle syndesmotic mechanical stability from paired preoperative radiographs**
+SyndNet is an anatomy-aware deep learning framework for predicting ankle syndesmotic mechanical stability from paired preoperative anteroposterior (AP) and lateral radiographs. It combines a diagnostic image representation with probabilistic anatomical anchors, reliability weighting and an anatomy-aligned residual. The repository provides the scientific implementation, aggregate reference results, statistical analyses, synthetic input formats and frozen inference checkpoints. The reference target is mechanical stability established by the study reference assessment. Radiographic phenotype proxies describe image patterns; they are not direct measurements of biomechanical stress, strain or force.
 
-SyndNet uses paired anteroposterior (AP) and lateral ankle radiographs to predict mechanical stability of the distal tibiofibular syndesmosis. Probabilistic anatomical anchors guide integration with a diagnostic feature representation through anatomy-aligned pooling, anchor reliability, and a residual pathway. This repository provides the scientific implementation and released numerical analyses for research; radiographic phenotype proxies are not direct measurements of biomechanical stress, strain, or force.
+## Model overview
 
-## Overview
+An anatomy teacher estimates probabilistic distributions for eight anatomical anchors: five in the AP view and three in the lateral view. A diagnostic pathway supplies image features. Anatomy-guided soft pooling aligns local feature summaries with the anchor distributions. Reliability weighting incorporates visibility, uncertainty and image-quality information. A fixed anatomical support matrix connects anchors to radiographic proxy phenotypes. The final logit combines the diagnostic baseline with the anatomy-aligned residual using an internally fitted scale.
 
-1. An anatomy teacher produces probabilistic anchor distributions.
-2. Eight anchors comprise five AP and three lateral anchors.
-3. A diagnostic pathway supplies image feature representations.
-4. Anatomy-guided soft pooling aligns local feature summaries with anchor distributions.
-5. Anchor reliability incorporates visibility, uncertainty, and image-quality information.
-6. The anatomy-aligned residual uses radiographic proxy phenotypes.
-7. The final model combines the diagnostic logit and an internally fitted residual scale.
+Frozen inference uses three seeds, 42, 123 and 456, and five folds per seed. For a new examination, five fold logits are averaged within each seed, transformed to probabilities, and then averaged across the three seeds. The locked global operating threshold is `0.012530357984719657`; a prediction of 1 denotes mechanical instability. Averaging all fifteen probabilities directly would implement a different aggregation rule. Residual scales, support buffers and the threshold are supplied with the checkpoints.
 
-Implementation entry points are in `code/models/anatomy_model.py`, `diagnostic_model.py`, `reliability_model.py`, `matched_residual_model.py`, and `final_syndnet.py`. Original filenames and imports are preserved.
+## Study and validation
 
-## Study scope
+The study includes an auxiliary normal-anatomy cohort, an internal development cohort and four external validation cohorts. The study diagnostic evaluation comprises 1,461 internal cases and 589 external cases, for 2,050 cases in total. Internal predictions follow prespecified held-out-fold evaluation; external predictions use the five-fold ensemble within each seed. These distinct evaluation paths are retained in numerical analyses; the case-level inputs are controlled.
 
-The study distinguishes an auxiliary normal-anatomy cohort, an internal development cohort, four external validation cohorts, and an MRMC reader study. Raw images for these cohorts are not released here. The frozen reader analysis comprises 15 readers, 2,050 cases, 30,750 paired reader-case records, and 61,500 condition-level records. Further design and statistical details are in [MRMC methods](MRMC/MRMC_METHODS_FINAL_FACTS.md); cohort counts not established by the released derived files are not inferred.
+The crossover reader study includes 15 readers and 2,050 cases, yielding 30,750 paired reader-case observations and 61,500 condition-level records. Analyses compare unaided and AI-assisted interpretation. The R pipeline implements primary multireader multicase AUROC inference, operating-metric mixed models, crossover analyses, specialty and experience analyses, exploratory safety analyses, and individual-reader bootstrap intervals. Methods and reference results are documented in `reader_study_reproducibility/`. Interpretation of performance should follow the study populations, reference assessment and uncertainty estimates.
 
-## Repository contents
+## Repository structure
 
-| Directory | Purpose |
-|-----------|---------|
-| `code/models/`, `code/training/`, `code/evaluation/`, `code/utils/` | Scientific implementation and original training/evaluation entry points |
-| `code/bootstrap/` | Shared numerical bootstrap implementation |
-| `configs/` | Frozen configurations, thresholds, folds, seeds, and reference outputs |
-| `scripts/` | Python numerical reproduction and release validation |
-| `data/` | Approved de-identified frozen predictions and reader scores |
-| `results/` | Frozen main/supplementary numerical outputs |
-| `MRMC/` | Clean reader inputs, R statistical scripts, publication CSVs, QC, and actual environment lock |
-| `environments/` | Verified numerical-analysis environment and dependency guidance |
-| `third_party/` | Separate upstream license records and available license texts |
-| `tests/` | Lightweight integrity/reproduction tests |
-| `docs/` | Methods, source-data mapping, archival instructions, and retained package documentation |
+| Directory | Contents |
+|---|---|
+| `code/` | Models, training and evaluation entry points, image utilities and bootstrap implementation |
+| `configs/` | Configurations, folds, seeds, scales, thresholds and numerical references |
+| `data/` | Synthetic examples and input-format documentation |
+| `scripts/` | Numerical reproduction, checkpoint download and paired-image inference |
+| `inference/` | Checkpoint reconstruction, preprocessing and ensemble execution |
+| `reader_study_reproducibility/` | Statistical scripts, methods, synthetic formats and environment documentation |
+| `results/` | Main and supplementary numerical source tables |
+| `weights/` | Checkpoint hashes, configuration and component relationships |
+| `environments/` | Verified analysis and inference dependency specifications |
+| `examples/` | Nonclinical metric and image-input examples |
+| `docs/` | Source-data mapping, inference methods and validation evidence |
+| `tests/` | Lightweight numerical and integrity checks |
 
-The original flat implementation organization is retained rather than converted into an unverified installable Python package. Source-data CSVs are in `results/` and `MRMC/03_results/`; the authoritative archive contains no submission XLSX workbook.
+Checkpoint tensors are distributed separately as a GitHub Release asset. Numerical reproduction requires approved derived predictions stored outside the repository, but does not require inference weights. `docs/SOURCE_DATA_MAP.md` identifies inputs and corresponding source tables. Full-precision CSVs support comparisons with reproduced outputs; manuscript display rounding should be applied separately.
 
-## Reproducibility levels
+## Reproduce numerical analyses
 
-### Level 1 — Numerical-result reproduction
-
-Released derived predictions support diagnostic metrics, ablations, the fixed SyndNet reader-study benchmark, and bootstrap analyses. De-identified reader inputs and the R pipeline support primary iMRMC, operating-metric GLMMs, secondary crossover and exploratory safety analyses, and individual-reader bootstrap intervals. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for execution order, environment assumptions, validation results, and limitations.
-
-### Level 2 — Inference reproduction
-
-Publicly reproducible using the released frozen inference checkpoints and locked preprocessing/inference pipeline. Version 1.1.0 adds a lossless Release weight asset and a verified paired-image command. Supported verification environment: Python 3.12, PyTorch 2.14.0+cu132, torchvision 0.29.0+cu132, CUDA GPU; CPU fidelity is not established. [Fidelity report](docs/CHECKPOINT_FIDELITY_REPORT.md), [single-pair context audit](docs/SINGLE_PAIR_CONTEXT_AUDIT.json), and [clean-environment smoke test](docs/INFERENCE_SMOKE_TEST.json) describe the checks and batch-size sensitivity.
-
-### Level 3 — Full model retraining
-
-Requires controlled-access radiographs, annotations and study manifests and is therefore not fully reproducible from public materials alone. The trained diagnostic states include their encoder and prototype buffers; domain-specific SSL initialization is not an additional inference dependency.
-
-## Quick start
-
-```bash
-git clone https://github.com/xinxiaolin123/SyndNet.git
-cd SyndNet
-python -m venv .venv
-# Activate the environment using the command appropriate to your operating system.
-python -m pip install -r environments/analysis-verified.txt
-python scripts/validate_release.py
-python scripts/reproduce_table2.py
-python scripts/reproduce_table3.py
-python scripts/reproduce_table4_model_benchmark.py
-```
-
-These commands reproduce numerical results from stored predictions; no model training or imaging checkpoint is required. Full bootstrap and R commands are documented in [REPRODUCIBILITY.md](REPRODUCIBILITY.md). Reproduction scripts write output CSVs; use a separate working copy when preserving the original frozen payload.
-
-## Data and code access
-
-See [DATA_ACCESS.md](DATA_ACCESS.md) and [CODE_AVAILABILITY.md](CODE_AVAILABILITY.md). The clinical reference target is mechanical stability; radiographic proxy phenotypes should not be described as direct biomechanical measurements. Exact correspondence with manuscript text must be checked against the submitted manuscript, which is not part of the archive.
-
-## License and citation
-
-Copyright 2026 SyndNet authors. Project code is licensed under the unmodified [Apache License 2.0](LICENSE). Third-party software retains its own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Research-purpose statements do not add restrictions to the license.
-
-Citation metadata is in [CITATION.cff](CITATION.cff). The collective credit is supplied; individual author names, affiliations, funding and article identifiers have not been invented. Archival DOI: **DOI_PENDING**. GitHub provides versioned access but does not itself establish DOI-based archival permanence; see [archival instructions](docs/ARCHIVING.md).
-
-## Paired-image inference (v1.1.0)
-
-Use a separate Python 3.12 environment for inference; it is independent of the numerical-analysis environment.
+Use Python 3.12 in a dedicated environment. From the repository root:
 
 ```bash
 python -m venv .venv
 # Activate the environment for your operating system.
+python -m pip install -r environments/analysis-verified.txt
+python scripts/validate_release.py
+python -m unittest discover -s tests
+python scripts/validate_synthetic_formats.py
+python examples/demo_metrics.py
+```
+
+These public-only commands check integrity and artificial formats; they do not reproduce publication statistics. Actual case-level predictions and reader records are controlled. After approved access, set `SYNDNET_ANALYSIS_DATA_DIR` to an external input directory, then run `scripts/reproduce_table2.py`, `scripts/reproduce_table3.py`, `scripts/reproduce_table4_model_benchmark.py` and the bootstrap commands in [reproducibility](REPRODUCIBILITY.md). The calculations retain fixed decisions, operating thresholds and estimands. Outputs default to the Git-ignored `reproduction_output/` directory. Aggregate reference CSVs remain public for numerical comparison.
+
+For the complete reader analysis, restore `reader_study_reproducibility/environment/renv.lock` with the recorded R version. Configure `SYNDNET_READER_STUDY_ROOT` and `SYNDNET_REFERENCE_RESULTS_DIR` for approved external inputs, then run `Rscript --vanilla reader_study_reproducibility/R/run_all.R` from the repository root. The runner refuses an in-repository controlled workspace and writes confidential outputs externally. It fits statistical models, computes individual-reader intervals and exports publication tables. Primary AUROC inference uses iMRMC U-statistic estimates with BDG variance and degrees-of-freedom inference. GLMM marginal intervals condition on fitted variance components; individual-reader intervals use 10,000 paired, reference-class-stratified case resamples. Details appear in [statistical methods](reader_study_reproducibility/STATISTICAL_METHODS.md).
+
+## Run paired-image inference
+
+Use a separate Python 3.12 inference environment with the documented CUDA configuration:
+
+```bash
 python -m pip install -r environments/inference-verified.txt
 python scripts/download_weights.py --output-dir downloaded_weights
 python scripts/infer_pair.py --ap path/to/AP.png --lat path/to/LAT.png --weights-dir downloaded_weights/weights --output prediction.json
 ```
 
-For a nonclinical plumbing test, generate patterns with `python examples/make_synthetic_pair.py --output-dir synthetic`, then supply `synthetic/AP.png` and `synthetic/LAT.png` to the same command. Synthetic predictions have no diagnostic meaning. Installation requires approximately 2 GB for the PyTorch wheel download plus the extracted environment; weights require approximately 924 MB uncompressed. Inference runtime is recorded in the smoke report and varies by hardware.
+The downloader verifies the published archive before extraction. Individual file hashes and tensor hashes are recorded in `weights/MANIFEST.json`. Output records the probability, threshold and binary prediction. State files require approximately 924 MB extracted; the compressed archive is approximately 859 MB. Execution and installation time depend on hardware and package availability.
 
-The single-pair adapter preserves the original external batch-size-4 CUDA kernel context using four identical copies and returns the first prediction. Full clinical scope, image conventions, aggregation and numerical sensitivity are documented in [MODEL_CARD.md](MODEL_CARD.md), [preprocessing](docs/INFERENCE_PREPROCESSING.md), and [final specification](docs/FINAL_INFERENCE_SPECIFICATION.md). The v1.0.0 tag and Release remain immutable; all frozen numerical outputs are unchanged.
+Inputs are paired preoperative AP and lateral ankle radiographs. Deterministic preprocessing converts each image to grayscale, crops the defined border, pads to a square, resizes to 384 × 384, repeats the grayscale channel and applies ImageNet normalization. Orientation, view selection and acquisition conventions must match study inputs. The command does not perform DICOM windowing or orientation canonicalization. See [preprocessing](docs/INFERENCE_PREPROCESSING.md) and [inference specification](docs/FINAL_INFERENCE_SPECIFICATION.md).
+
+For an execution example, run `python examples/make_synthetic_pair.py --output-dir synthetic`, then supply `synthetic/AP.png` and `synthetic/LAT.png` to the same inference command. These nonclinical patterns and their predictions have no diagnostic meaning.
+
+## Reproducibility scope
+
+1. **Numerical analyses:** statistical code and aggregate reference values are public; full reproduction requires approved controlled predictions and reader records. Public checks use artificial formats only.
+2. **Frozen inference:** released states support paired-image inference in the validated CUDA float16 environment. Numerical fidelity is sensitive to batch context; the single-pair adapter evaluates four replicated pairs and returns the first result. Internal out-of-fold reproduction requires its original batch context and fold-specific evaluation. Evidence is in [inference validation](docs/INFERENCE_VALIDATION.md).
+3. **Full retraining:** controlled radiographs, annotations and study manifests are required. Trained diagnostic states include encoder and prototype buffers, so separate training initialization is unnecessary for frozen inference.
+
+CPU fidelity and transfer to other computational platforms have not been established. Clinical scope concerns fracture-associated paired preoperative examinations. Isolated ligament injuries, postoperative imaging or alternative projections require separate validation. Model advice does not replace intraoperative mechanical assessment; incorrect advice can impair reader decisions. [MODEL_CARD.md](MODEL_CARD.md) describes these limitations.
+
+Full-cohort comparison found no locked-threshold decision changes across 2,050 cases. Original-context replay reproduced frozen probabilities to approximately `1.11e-16`; changing execution context produced larger probability differences, up to `0.007227` for replicated-pair versus frozen evaluation. This decision agreement does not imply that arbitrary batch contexts reproduce the same probabilities. The original final partial external batch also requires its original context for numerical fidelity.
+
+## Data availability
+
+The current public tree contains aggregate tables and synthetic examples. Case-level predictions, actual reader responses and assignments are controlled. Requests for de-identified controlled data should be sent to Xinxiao Lin at **2060753088@qq.com**, with applicant and institutional details, research purpose, requested data and a data-management plan. Ethics approval or exemption is required where applicable. Requests normally receive an initial response within 30 days and undergo scientific, privacy and institutional review. Approved use is limited to the agreed research purpose; re-identification and unauthorized redistribution are prohibited. Approval and access to the complete raw dataset are not guaranteed. See [DATA_ACCESS.md](DATA_ACCESS.md).
+
+## Citation
+
+Please cite **Xinxiao Lin, SyndNet, version 1.1.1**, and the [software repository](https://github.com/xinxiaolin123/SyndNet). Structured metadata, including the author's ORCID, are provided in [CITATION.cff](CITATION.cff).
+
+## Licence
+
+Project code and authored model states are distributed under the standard [Apache License 2.0](LICENSE), Copyright 2026 SyndNet authors. Dependencies retain their respective licences; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Controlled-data conditions are described separately in the data availability statement.

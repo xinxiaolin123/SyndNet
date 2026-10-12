@@ -1,4 +1,3 @@
-/_PRIVATE_REVIEW_DO_NOT_COMMIT/
 /.venv/
 /venv/
 __pycache__/
@@ -17,9 +16,18 @@ Thumbs.db
 *.rds
 .Rhistory
 .RData
-MRMC/renv/library/
-MRMC/renv/staging/
-MRMC/renv/local/
+reader_study/renv/library/
+reader_study/renv/staging/
+reader_study/renv/local/
 /downloaded_weights/
 *.safetensors
 *.pkl
+
+synthetic/
+prediction.json
+
+/_LOCAL_ONLY/
+
+/reproduction_output/
+/data/synthetic_examples/*.png
+/reader_study_reproducibility/controlled_results/

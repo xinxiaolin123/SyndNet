@@ -1,0 +1,2 @@
+example_id,ap_path,lat_path,is_synthetic
+EXAMPLE_PAIR,synthetic_examples/AP.png,synthetic_examples/LAT.png,true

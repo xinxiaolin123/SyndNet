@@ -1,6 +1,6 @@
 # Locked paired-image preprocessing
 
-The adapter calls `clean_tensor` in the unchanged `code/utils/diagnostic_runtime.py`. The authoritative external predictor calls the equivalent `v62_runtime.ClassificationDataset(..., 384, False)`; this is a deterministic path.
+The adapter calls the deterministic `clean_tensor` function in `code/utils/diagnostic_runtime.py`, with image size 384 and the study preprocessing conventions.
 
 Each AP and lateral input is opened separately by Pillow, converted to 8-bit grayscale `L`, cropped by `dx=max(1,int(width*0.025))` and `dy=max(1,int(height*0.025))` on both opposing borders, and centred on a black grayscale square canvas whose side is the larger cropped dimension. Odd padding differences use integer floor offsets. The canvas is resized to 384 × 384 with Pillow BILINEAR interpolation and converted to RGB by repeating the grayscale channel. `torchvision.transforms.functional.to_tensor` maps uint8 to floating values in [0,1]. Channel means [0.485,0.456,0.406] and standard deviations [0.229,0.224,0.225] define normalization.
 

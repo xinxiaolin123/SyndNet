@@ -1,5 +1,5 @@
 # Environments
 
-The original `requirements.txt` and `environment.yml` in the root are unchanged. They are dependency specifications with version ranges; no historical exact Python environment was supplied. `analysis-verified.txt` records the actual separately tested numerical Python environment, without installing imaging/training dependencies.
+`analysis-verified.txt` records the verified Python 3.12 numerical-analysis dependencies. `inference-verified.txt` records the separate CUDA inference environment. Root `requirements.txt` and `environment.yml` specify training dependencies using version ranges.
 
-The actual clean R environment is `MRMC/05_environment/renv.lock`, `sessionInfo.txt`, and `package_versions.csv`. These are preserved exactly; no second conflicting R lock is introduced. Restore from the `MRMC` directory as described in REPRODUCIBILITY.md.
+The reader-study R environment is recorded in `reader_study_reproducibility/environment/renv.lock`, `sessionInfo.txt` and `package_versions.csv`. Restore from `reader_study_reproducibility/` as described in [reproducibility](../REPRODUCIBILITY.md).

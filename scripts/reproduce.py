@@ -1,14 +1,23 @@
 """Reproduce frozen performance estimates from released derived predictions."""
 from pathlib import Path
-import argparse,json
+import argparse,json,os
 import numpy as np,pandas as pd
 from sklearn.metrics import roc_auc_score,average_precision_score
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent / "code" / "bootstrap"))
 from bootstrap_core import patient_weights,weighted_metrics,METRICS
 ROOT=Path(__file__).resolve().parents[1]
+DATA_ROOT=Path(os.environ.get('SYNDNET_ANALYSIS_DATA_DIR',str(ROOT/'data')))
+REFERENCE_ROOT=Path(os.environ.get('SYNDNET_ANALYSIS_REFERENCE_DIR',str(ROOT/'results')))
+READER_RESULTS_ROOT=Path(os.environ.get('SYNDNET_READER_RESULTS_DIR',str(ROOT/'reader_study_reproducibility'/'controlled_results')))
+OUTPUT_ROOT=Path(os.environ.get('SYNDNET_ANALYSIS_OUTPUT_DIR',str(ROOT/'reproduction_output')))
 
-def read(name):return pd.read_csv(ROOT/'data'/name,float_precision='round_trip')
+
+def read(name):
+ path=DATA_ROOT/name
+ if not path.is_file():raise FileNotFoundError('Study input '+name+' is controlled. Set SYNDNET_ANALYSIS_DATA_DIR to an approved external directory; see DATA_ACCESS.md.')
+ if path.resolve().is_relative_to(ROOT.resolve()):raise ValueError('Controlled study inputs must be outside the public repository.')
+ return pd.read_csv(path,float_precision='round_trip')
 def metric(d):
  y=d.reference_label.to_numpy(dtype=int);p=d.predicted_probability.to_numpy(dtype=float);q=d.fixed_prediction.to_numpy(dtype=bool)
  return dict(zip(METRICS,weighted_metrics(y,p,q,np.ones((1,len(d)),int))[0]))
@@ -26,7 +35,7 @@ def reproduce(target):
  return result
 
 def run(target):
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,default=ROOT/'results'/('reproduced_'+target+'.csv'));args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,default=OUTPUT_ROOT/('reproduced_'+target+'.csv'));args=parser.parse_args()
  rows=reproduce(target);expected=json.loads((ROOT/'configs/expected_points.json').read_text())[target]
  for row,ref in zip(rows,expected):
   for key in METRICS:
@@ -34,7 +43,7 @@ def run(target):
  assert len(rows)==len(expected);args.output.parent.mkdir(parents=True,exist_ok=True);pd.DataFrame(rows).to_csv(args.output,index=False,float_format='%.17g',encoding='utf-8',lineterminator='\n');print('Reproduced '+target+': '+str(len(rows))+' rows')
 
 def run_bootstrap():
- parser=argparse.ArgumentParser(description='Patient bootstrap with frozen predictions and thresholds');parser.add_argument('--output',type=Path,default=ROOT/'results/reproduced_bootstrap_ci.csv');args=parser.parse_args();cfg=json.loads((ROOT/'configs/statistical_config.json').read_text());rows=[]
+ parser=argparse.ArgumentParser(description='Patient bootstrap with frozen predictions and thresholds');parser.add_argument('--output',type=Path,default=OUTPUT_ROOT/'reproduced_bootstrap_ci.csv');args=parser.parse_args();cfg=json.loads((ROOT/'configs/statistical_config.json').read_text());rows=[]
  df=read('ablation_patient_predictions.csv');names=df.model.drop_duplicates().tolist();seeds=[42,123,456];first=df[(df.model==names[0])&(df.seed==42)];y=first.reference_label.to_numpy(dtype=int);fold=first.fold.to_numpy();ids=first.release_case_id.tolist();w=patient_weights(y,fold,10000,cfg['ablation_seed']);ensembles={}
  for name in names:
   samples=[];ps=[]

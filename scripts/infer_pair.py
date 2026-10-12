@@ -13,7 +13,7 @@ def main():
     args=p.parse_args();start=time.perf_counter();weights=LockedWeights(args.weights_dir)
     ap,lat=paired_tensors(args.ap,args.lat);prob,modules=predict_tensors(weights,ap,lat)
     value=float(prob[0]);threshold=weights.config['fixed_threshold']
-    result={'final_probability':value,'fixed_threshold':threshold,'predicted_class':int(value>=threshold),'model_version':'1.1.0','checkpoint_manifest_hash':weights.manifest_hash,'modules_loaded':modules,'missing_keys':[],'unexpected_keys':[],'inference_device':'cuda','runtime_seconds':time.perf_counter()-start}
+    result={'final_probability':value,'fixed_threshold':threshold,'predicted_class':int(value>=threshold),'software_version':'1.1.1','model_version':'1.1.0','checkpoint_manifest_hash':weights.manifest_hash,'modules_loaded':modules,'missing_keys':[],'unexpected_keys':[],'inference_device':'cuda','runtime_seconds':time.perf_counter()-start}
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result))
 if __name__=='__main__':main()

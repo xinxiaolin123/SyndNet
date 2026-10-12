@@ -1,0 +1,5 @@
+example_id,reference_label,predicted_probability,fixed_prediction
+EXAMPLE_A,0,0.1,0
+EXAMPLE_B,0,0.2,0
+EXAMPLE_C,1,0.8,1
+EXAMPLE_D,1,0.9,1

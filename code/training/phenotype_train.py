@@ -85,7 +85,7 @@ def main():
     with (args.output / "predictions.csv").open("w", encoding="utf-8", newline="") as handle:
         writer=csv.DictWriter(handle, fieldnames=list(records[0])); writer.writeheader(); writer.writerows(records)
     torch.save({"protocol":"MATCHED-RESIDUAL-FINAL-1.0","seed":args.seed,"fold":args.fold,"state_dict":model.state_dict(),"phenotypes":PHENOTYPE_NAMES,
-                "claim_guardrail":"standardized radiographic proxy phenotypes; not patient-specific FE"}, args.output / "model.pt")
+                "phenotype_interpretation":"standardized radiographic proxy phenotypes; not patient-specific FE"}, args.output / "model.pt")
     (args.output / "COMPLETE").write_text("COMPLETE\n", encoding="ascii")
     print(json.dumps({"status":"PHENOTYPE_FOLD_COMPLETE","seed":args.seed,"fold":args.fold,"n":len(records)}), flush=True)
 

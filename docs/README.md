@@ -1,18 +1,12 @@
-# Documentation
+# Scientific documentation
 
-- [Scientific overview](../README.md)
-- [Numerical reproduction](../REPRODUCIBILITY.md)
-- [Data access](../DATA_ACCESS.md)
-- [Code availability](../CODE_AVAILABILITY.md)
-- [MRMC methods](../MRMC/MRMC_METHODS_FINAL_FACTS.md)
-- [MRMC results](../MRMC/MRMC_RESULTS_FINAL_FACTS.md)
-- [Source-data mapping](SOURCE_DATA_MAP.md)
-- [Archival deposition](ARCHIVING.md)
-- [Safety audit](../RELEASE_AUDIT.md)
-- [Original package documentation](FROZEN_PACKAGE_README.md)
+- [Source data map](SOURCE_DATA_MAP.md): controlled-input mapping and aggregate publication tables.
+- [Inference dependency graph](INFERENCE_DEPENDENCY_GRAPH.md): model components and integration.
+- [Preprocessing](INFERENCE_PREPROCESSING.md): image conventions and deterministic transformations.
+- [Inference specification](FINAL_INFERENCE_SPECIFICATION.md): precision, aggregation and thresholds.
+- [Inference validation](INFERENCE_VALIDATION.md): loading, numerical fidelity and computational scope.
+- [Reader-study methods](../reader_study_reproducibility/STATISTICAL_METHODS.md): statistical design and inference.
 
-The repository README is the primary landing page. No clinical inference web service is provided.
+Machine-readable scientific verification results are stored in `validation/`.
 
-## Version 1.1.0 inference
-
-See [dependency graph](INFERENCE_DEPENDENCY_GRAPH.md), [preprocessing](INFERENCE_PREPROCESSING.md), [final specification](FINAL_INFERENCE_SPECIFICATION.md), [fidelity](CHECKPOINT_FIDELITY_REPORT.md), [single-pair context audit](SINGLE_PAIR_CONTEXT_AUDIT.json), and [fresh-environment smoke test](INFERENCE_SMOKE_TEST.json). The current full publication gate is in the root `CHECKPOINT_RELEASE_FINAL_AUDIT.md`.
+See [public repository audit](PUBLIC_RELEASE_AUDIT.md) for privacy scope and remaining actions.

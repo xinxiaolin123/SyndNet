@@ -1,24 +1,40 @@
-"""Validate preserved scientific payload and structural release integrity."""
+"""Check distributed file integrity, checkpoint metadata and public synthetic input formats."""
 from pathlib import Path
-import csv,hashlib,json
+import csv,hashlib,json,re
 ROOT=Path(__file__).resolve().parents[1]
 def validate():
- manifest=json.loads((ROOT/'environments/frozen_payload_manifest.json').read_text(encoding='utf-8'))
+ entries=[]
+ for line in (ROOT/'SHA256SUMS.txt').read_text(encoding='utf-8').splitlines():
+  digest,name=line.split('  ',1)
+  path=(ROOT/name).resolve()
+  assert path.is_relative_to(ROOT.resolve()),name
+  assert hashlib.sha256(path.read_bytes()).hexdigest()==digest,name
+  entries.append(name)
+ manifest=json.loads((ROOT/'weights/MANIFEST.json').read_text())
+ graph=json.loads((ROOT/'weights/checkpoint_dependency_graph.json').read_text())['models']
+ config=json.loads((ROOT/'weights/inference_config.json').read_text())
+ assert len(manifest['files'])==30 and len(graph)==15
+ names={x['file'] for x in manifest['files']}
+ assert len(names)==30
  for item in manifest['files']:
-  path=manifest['relocations'].get(item['path'],item['path'])
-  assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==item['SHA256'],path
- paired=ROOT/'MRMC/01_input/MRMC_REAL_READER_CASE_FINAL.csv'
- with paired.open(encoding='utf-8-sig',newline='') as f:
-  rows=list(csv.DictReader(f))
- assert len(rows)==30750
- assert len({r['reader_id'] for r in rows})==15
- assert len({r['case_id'] for r in rows})==2050
- assert len({(r['reader_id'],r['case_id']) for r in rows})==30750
- with (ROOT/'MRMC/01_input/MRMC_REAL_LONG_FINAL.csv').open(encoding='utf-8-sig',newline='') as f:
-  assert sum(1 for _ in csv.DictReader(f))==61500
- for filename in ['MRMC_INPUT_QC.csv','MRMC_AUROC_FINGERPRINT_QC.csv','MRMC_POST_ANALYSIS_CHECKS.csv']:
-  with (ROOT/'MRMC/04_QC'/filename).open(encoding='utf-8-sig',newline='') as f:
-   assert all(r['pass'].upper()=='TRUE' for r in csv.DictReader(f)),filename
- assert '_PRIVATE_REVIEW_DO_NOT_COMMIT/' in (ROOT/'.gitignore').read_text()
- return len(manifest['files'])
-if __name__=='__main__':print('PASS: '+str(validate())+' frozen payload files and reader/QC structure')
+  assert re.fullmatch('[0-9a-f]{64}',item['sha256'])
+  assert re.fullmatch('[0-9a-f]{64}',item['canonical_tensor_sha256'])
+  assert item['bytes']>0 and item['tensor_count']>0
+  assert item['missing_keys']==[] and item['unexpected_keys']==[]
+ assert {(x['seed'],x['fold']) for x in graph}=={(s,f) for s in [42,123,456] for f in range(5)}
+ assert all(set(x['components'].values())<=names for x in graph)
+ assert config['fixed_threshold']==0.012530357984719657
+ assert len(config['alpha_by_checkpoint'])==15
+ checkpoint_hashes={x['file']:x['sha256'] for x in manifest['files']}
+ weight_entries={}
+ for line in (ROOT/'weights/SHA256SUMS').read_text().splitlines():
+  digest,name=line.split('  ',1)
+  assert name not in weight_entries
+  weight_entries[name]=digest
+  if name in checkpoint_hashes:assert checkpoint_hashes[name]==digest,name
+  else:assert hashlib.sha256((ROOT/'weights'/name).read_bytes()).hexdigest()==digest,name
+ assert set(checkpoint_hashes)<=set(weight_entries)
+ from validate_synthetic_formats import validate_formats
+ validate_formats()
+ return len(entries)
+if __name__=='__main__':print('Verified '+str(validate())+' files, checkpoint metadata and synthetic input formats')

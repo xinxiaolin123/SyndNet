@@ -1,10 +1,13 @@
 cff-version: 1.2.0
-message: "Cite the frozen SyndNet software version. Archival DOI: DOI_PENDING."
+message: "Please cite this software when using SyndNet."
 type: software
-title: "SyndNet: anatomy-aware prediction of ankle syndesmotic mechanical stability"
+title: SyndNet
 authors:
-  - name: "SyndNet authors"
-version: 1.1.0
+  - given-names: Xinxiao
+    family-names: Lin
+    orcid: "https://orcid.org/0009-0006-6476-2559"
+version: 1.1.1
 repository-code: "https://github.com/xinxiaolin123/SyndNet"
+url: "https://github.com/xinxiaolin123/SyndNet"
 license: Apache-2.0
-abstract: "Scientific implementation and frozen derived inputs for numerical analyses of SyndNet, including diagnostic performance, ablations, bootstrap intervals, and an MRMC reader study. Frozen inference checkpoints and a verified paired-image adapter are supplied as versioned Release materials. Raw radiographs and restricted retraining inputs are not included."
+abstract: "Anatomy-aware deep learning for prediction of ankle syndesmotic mechanical stability from paired radiographs."

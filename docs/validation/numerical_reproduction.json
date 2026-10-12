@@ -1,0 +1,77 @@
+{
+  "verification_date": "2026-10-12",
+  "python": {
+    "version": "3.12.14",
+    "environment": "environments/analysis-verified.txt",
+    "outputs": [
+      {
+        "output": "reproduced_bootstrap_ci.csv",
+        "exact_numerical_agreement": true,
+        "byte_equal": false,
+        "equal_after_line_ending_normalization": true
+      },
+      {
+        "output": "reproduced_supplementary_ci.csv",
+        "exact_numerical_agreement": true,
+        "byte_equal": false,
+        "equal_after_line_ending_normalization": false
+      },
+      {
+        "output": "reproduced_table2.csv",
+        "exact_numerical_agreement": true,
+        "byte_equal": false,
+        "equal_after_line_ending_normalization": true
+      },
+      {
+        "output": "reproduced_table3.csv",
+        "exact_numerical_agreement": true,
+        "byte_equal": true,
+        "equal_after_line_ending_normalization": true
+      },
+      {
+        "output": "reproduced_table4.csv",
+        "exact_numerical_agreement": true,
+        "byte_equal": true,
+        "equal_after_line_ending_normalization": true
+      }
+    ]
+  },
+  "reader_study": {
+    "R_version": "4.6.1",
+    "environment": "reader_study_reproducibility/environment/renv.lock",
+    "full_pipeline_recomputed": true,
+    "CSV_outputs_compared": 27,
+    "exact_numerical_agreement": true,
+    "compared_outputs": [
+      "experience_scaling.csv",
+      "figure_confusion_percentages.csv",
+      "figure_operating_points.csv",
+      "locked_model_benchmark.csv",
+      "locked_model_descriptive.csv",
+      "locked_model_roc.csv",
+      "operating_glmm.csv",
+      "primary_imrmc_MLEstat.csv",
+      "primary_imrmc_perReader.csv",
+      "primary_imrmc_Ustat.csv",
+      "publication_table4.csv",
+      "publication_tableS6.csv",
+      "publication_tableS7_coefficients.csv",
+      "publication_tableS7_interaction.csv",
+      "publication_tableS7_specialties.csv",
+      "publication_tableS9.csv",
+      "reader_descriptive_auc.csv",
+      "reader_metadata.csv",
+      "reader_observed_effects.csv",
+      "reader_observed_metrics.csv",
+      "reader_paired_bootstrap.csv",
+      "reader_score_roc.csv",
+      "safety_coefficients.csv",
+      "safety_glmm.csv",
+      "secondary_coefficients.csv",
+      "secondary_specialty_interaction.csv",
+      "secondary_specialty_margins.csv"
+    ]
+  },
+  "controlled_input_interface_reverified": true,
+  "public_data_scope": "Aggregate references and explicitly synthetic formats only; full statistics require controlled external inputs"
+}

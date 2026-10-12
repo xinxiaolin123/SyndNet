@@ -1,0 +1,5 @@
+reader_id,case_id,truth,syndnet_probability,reader_score_unaided,reader_score_assisted,reader_decision_unaided,reader_decision_assisted,specialty,experience_years,sequence
+EXAMPLE_READER_A,EXAMPLE_CASE_A,0,0.1,1,1,0,0,Example specialty,1,AB
+EXAMPLE_READER_A,EXAMPLE_CASE_B,1,0.9,4,5,1,1,Example specialty,1,AB
+EXAMPLE_READER_B,EXAMPLE_CASE_A,0,0.1,2,1,0,0,Example specialty,2,BA
+EXAMPLE_READER_B,EXAMPLE_CASE_B,1,0.9,4,5,1,1,Example specialty,2,BA
