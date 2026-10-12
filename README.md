@@ -1,6 +1,6 @@
 # SyndNet
 
-SyndNet is an anatomy-informed deep learning framework for research on ankle syndesmotic mechanical stability using paired anteroposterior (AP) and lateral radiographs. This repository provides public software implementation accompanying the study: inference code, released checkpoint interfaces and synthetic examples. It does not provide clinical study records or manuscript result tables.
+SyndNet is an anatomy-informed deep learning framework for research on ankle syndesmotic mechanical stability using paired anteroposterior (AP) and lateral radiographs. This repository provides public software implementation accompanying the study: inference code, released checkpoint interfaces and synthetic examples.
 
 ## Installation
 
@@ -12,7 +12,7 @@ python -m venv .venv
 python -m pip install -r environments/inference-verified.txt
 ```
 
-The inference environment was verified with CUDA on an NVIDIA GPU. CPU and other-platform numerical fidelity have not been established. See [environment notes](environments/README.md).
+The inference environment was verified with CUDA on an NVIDIA GPU. See [environment notes](environments/README.md).
 
 ## Checkpoints and inference
 
@@ -21,7 +21,7 @@ python scripts/download_weights.py --output-dir downloaded_weights
 python scripts/infer_pair.py --ap path/to/AP.png --lat path/to/LAT.png --weights-dir downloaded_weights/weights --output prediction.json
 ```
 
-Released checkpoints are provided for inference. Use the supplied configuration for reproducible execution. Checkpoint names, purposes and SHA256 hashes are listed in [weights/README.md](weights/README.md).
+Released checkpoints are provided for inference. Use the supplied configuration and inference environment for reproducible execution. Checkpoint names, purposes and SHA256 hashes are listed in [weights/README.md](weights/README.md).
 
 Supply correctly oriented, exported AP/lateral images. The adapter performs deterministic grayscale conversion, border cropping, square padding, resizing and normalization; it does not perform DICOM conversion or automatic orientation correction. See [preprocessing](docs/INFERENCE_PREPROCESSING.md). Output contains a probability, the supplied operating parameter and a binary model prediction. Predictions are research outputs and do not replace clinical assessment.
 
@@ -44,7 +44,7 @@ python scripts/validate_synthetic_formats.py
 python examples/demo_metrics.py
 ```
 
-These commands check software integrity and artificial formats, not study performance. [REPRODUCIBILITY.md](REPRODUCIBILITY.md) describes the public scope. The [reader-study directory](reader_study_reproducibility/README.md) provides an input framework and synthetic formats without confidential records or study-specific statistical specifications.
+These commands check software integrity and artificial formats, not study performance. [REPRODUCIBILITY.md](REPRODUCIBILITY.md) describes the public scope. The [reader-study directory](reader_study_reproducibility/README.md) provides an input framework and synthetic formats.
 
 ## Data availability
 
