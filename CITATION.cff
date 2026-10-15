@@ -10,4 +10,8 @@ version: 1.1.1
 repository-code: "https://github.com/xinxiaolin123/SyndNet"
 url: "https://github.com/xinxiaolin123/SyndNet"
 license: Apache-2.0
-abstract: "Anatomy-aware deep learning for prediction of ankle syndesmotic mechanical stability from paired radiographs."
+abstract: "Anatomy-informed deep learning for prediction of ankle syndesmotic mechanical stability from paired radiographs."
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23311906"
+    description: "Permanent Zenodo archive"
