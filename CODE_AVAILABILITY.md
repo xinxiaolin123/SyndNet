@@ -1,5 +1,23 @@
 # Code availability
 
-The public software implementation is available at https://github.com/xinxiaolin123/SyndNet under Apache-2.0. It includes inference execution, checkpoint loading and synthetic input checks. Installation and usage are documented in [README.md](README.md).
+The public SyndNet inference software release is available at
+https://github.com/xinxiaolin123/SyndNet under the Apache License 2.0
+and is permanently archived at
+https://doi.org/10.5281/zenodo.23311906.
 
-This pre-submission software tree does not include clinical records, manuscript-specific result tables or the complete study analysis package. Public synthetic examples verify interfaces and cannot reproduce study estimates. Any code restrictions and reviewer access arrangements must be described accurately in the submission. No article DOI or software archival DOI is currently assigned here.
+The public release includes inference code, configuration files,
+dependency specifications, checkpoint-loading utilities and released
+inference checkpoints required for paired AP/lateral inference.
+
+This public inference software release is distinct from the accompanying
+scientific reproducibility package used to reproduce manuscript analyses.
+
+Raw radiographs, patient-level clinical records and study-specific
+restricted manifests are not publicly released because of ethics approval
+and institutional data-governance requirements.
+
+Full model retraining and analyses requiring controlled clinical data
+require access to the corresponding datasets under appropriate governance
+procedures.
+
+Installation and usage are documented in [README.md](README.md).
